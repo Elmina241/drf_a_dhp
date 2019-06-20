@@ -139,3 +139,42 @@ body {
 .navbar-nav .nav-item{
   margin: 0 20px 0 0;
 }
+
+.btn-save {
+  background-color: #ff5400;
+  color: white;
+  width: 260px;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.modal-form {
+  background-color: #fcfcfc;
+}
+
+.modal-header {
+  background-color: white;
+  height: 50px;
+  padding: 0.7rem;
+}
+
+.modal-form input{
+  border: 0;
+  background-color: inherit;
+  border-bottom: 1px solid #c9c4cb;
+  border-radius: 0;
+  outline:none;
+  margin-bottom: 15px;
+}
+
+.modal-form input:focus{
+  outline: none!important;
+  box-shadow: none;
+  background-color: inherit;
+}
+
+.modal-form select{
+  margin-bottom: 15px;
+}
+
