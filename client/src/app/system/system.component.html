@@ -1,0 +1,124 @@
+<!-- Header -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">Дальхимпром</a>
+  <ul class="navbar-nav" style="flex-direction: row; justify-content: flex-start;">
+    <li class="nav-item active">
+      <a class="nav-link" href="#">Процессы <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Справочники</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Журналы</a>
+    </li>
+  </ul>
+</nav>
+<!-- Header -->
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <i class="fas fa-flask"></i>
+              Реактивы <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-cubes"></i>
+              Продукция
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-receipt"></i>
+              Рецепты
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="far fa-list-alt"></i>
+              Варианты составов
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-fill-drip"></i>
+              Технологические композиции
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-archive"></i>
+              Хранилища
+            </a>
+          </li>
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-4 text-muted">
+            <span>Фасовка</span>
+          </h6>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-box"></i>
+              Тара
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-box"></i>
+              Укупорка
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-box"></i>
+              Упаковка
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-box"></i>
+              Этикетка
+            </a>
+          </li>
+        </ul>
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-4 text-muted">
+          <span>Свойства</span>
+        </h6>
+        <ul class="nav flex-column mb-2">
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-list-ul"></i>
+              Все характеристики
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-list"></i>
+              Характеристики рецептов
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fas fa-list"></i>
+              Видовые свойства
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+<!-- Sidebar -->
+    <!-- Content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <router-outlet></router-outlet>
+    </main>
+    <!-- Content -->
+  </div>
+</div>
+
+
