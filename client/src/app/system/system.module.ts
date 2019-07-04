@@ -10,6 +10,9 @@ import { CompositionPageComponent } from './composition-page/composition-page.co
 import { ComplexCompsPageComponent } from './complex-comps-page/complex-comps-page.component';
 import { StoragePageComponent } from './storage-page/storage-page.component';
 import {SystemComponent} from "./system.component";
+import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { HeaderComponent } from './shared/components/header/header.component';
+import {MaterialService} from "./shared/services/material.service";
 
 @NgModule({
   imports: [
@@ -24,7 +27,12 @@ import {SystemComponent} from "./system.component";
     CompositionPageComponent,
     ComplexCompsPageComponent,
     StoragePageComponent,
-    SystemComponent
+    SystemComponent,
+    SidebarComponent,
+    HeaderComponent
+  ],
+  providers: [
+    MaterialService
   ]
 })
 export class SystemModule {}
