@@ -11,12 +11,13 @@ import {Subscription} from "rxjs/internal/Subscription";
 export class MaterialPageComponent implements OnInit, OnDestroy {
 
   subscription: Subscription;
+  materials: Material[];
 
   constructor(private materialService: MaterialService) { }
 
   ngOnInit() {
     this.subscription = this.materialService.getMaterial().subscribe((data: Material)=>{
-        console.log(data);
+        this.materials = data;
     })
   }
 
