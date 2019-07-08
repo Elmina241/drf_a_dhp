@@ -13,6 +13,9 @@ import {SystemComponent} from "./system.component";
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import {MaterialService} from "./shared/services/material.service";
+import {MomentPipe} from "./shared/pipes/moment.pipe";
+import { AddMaterialComponent } from './material-page/add-material/add-material.component';
+import { EditMaterialComponent } from './material-page/edit-material/edit-material.component';
 
 @NgModule({
   imports: [
@@ -29,7 +32,10 @@ import {MaterialService} from "./shared/services/material.service";
     StoragePageComponent,
     SystemComponent,
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    MomentPipe,
+    AddMaterialComponent,
+    EditMaterialComponent
   ],
   providers: [
     MaterialService
