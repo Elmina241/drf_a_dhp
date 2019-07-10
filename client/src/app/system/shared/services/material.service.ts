@@ -15,4 +15,12 @@ export class MaterialService extends BaseApi{
   getMaterial(): Observable<any>{
     return this.get('tables/materials');
   }
+
+  getGroups(): Observable<any>{
+    return this.get('tables/groups');
+  }
+
+  addMaterial(material: Material): Observable<Material>{
+    return this.post('tables/materials/', material);
+  }
 }

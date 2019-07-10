@@ -12,10 +12,7 @@
               </button>
             </div>
             <select class="form-control form-control-sm outline-secondary">
-              <option>Все группы</option>
-              <option>Красители</option>
-              <option>Отдушки</option>
-              <option>ПАВ</option>
+              <option *ngFor="let group of groups" value="{{ group.id }}">{{ group.name }}</option>
             </select>
           </div>
         </div>
@@ -70,6 +67,6 @@
 
 <div class="modal fade" id="addItem">
 
-      <app-add-material></app-add-material>
+      <app-add-material [groups]="groups" (onMaterialAdd)="newMaterialAdded($event)"></app-add-material>
 
 </div>

@@ -14,3 +14,7 @@ class MaterialList(generics.ListCreateAPIView):
 class MaterialDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Material.objects.all()
     serializer_class = MaterialSerializer
+
+class MaterialGroupList(generics.ListCreateAPIView):
+    queryset = Material_group.objects.all()
+    serializer_class = MaterialGroupSerializer

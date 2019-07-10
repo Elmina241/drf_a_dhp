@@ -6,7 +6,8 @@ export class Material {
     public prefix: Prefix,
     public mark: string,
     public unit: Unit,
-    public concentration: number
+    public concentration: number,
+    public id?: number
   ) {}
 }
 

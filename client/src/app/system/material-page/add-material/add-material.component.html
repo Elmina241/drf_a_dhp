@@ -16,14 +16,13 @@
       <h6>Марка</h6>
       <input type="text" class="form-control form-control-sm" name="mark" ngModel/>
       <h6>Ед. измерения</h6>
-      <select class="form-control form-control-sm" name="unit" ngModel>
-        <option>Кг</option>
-        <option>Шт</option>
+      <select class="form-control form-control-sm" name="unit" id="select-unit" ngModel>
+        <option value="0">Кг</option>
+        <option value="1">Шт</option>
       </select>
       <h6>Группа</h6>
       <select class="form-control form-control-sm" name="group" ngModel>
-        <option>ПАВ</option>
-        <option>Краситель</option>
+        <option *ngFor="let g of groups" value="{{ g.id }}">{{ g.name }}</option>
       </select>
       <h6>Концентрация, %</h6>
       <input type="number" min="0" max="100" class="form-control form-control-sm" name="concentration" ngModel required/>

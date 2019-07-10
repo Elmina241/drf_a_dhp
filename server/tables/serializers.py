@@ -18,11 +18,22 @@ class UnitSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class MaterialSerializer(serializers.ModelSerializer):
-    #group = ProductGroupSerializer()
+    group = MaterialGroupSerializer(read_only=True)
+    prefix = PrefixSerializer(read_only=True)
+    unit = UnitSerializer(read_only=True)
     class Meta:
         model = Material
         fields = ('pk','name', 'code', 'group', 'prefix', 'mark', 'unit', 'concentration')
         depth = 1
+
+    def create(self, validated_data):
+        print(validated_data)
+        group = validated_data.pop('group')
+        instance = Material.objects.create(
+            group=group,
+            **validated_data
+        )
+        return instance
 
 
 # Модели для продукции

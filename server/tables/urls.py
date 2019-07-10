@@ -8,6 +8,7 @@ from tables import views
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     path('materials/', views.MaterialList.as_view()),
+    path('groups/', views.MaterialGroupList.as_view()),
     path('materials/<int:pk>/', views.MaterialDetail.as_view()),
 ]
 

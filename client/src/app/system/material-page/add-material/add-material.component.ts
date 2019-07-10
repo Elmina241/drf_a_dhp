@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
+import {MaterialService} from "../../shared/services/material.service";
+import {Group, Material} from "../../shared/models/material.model";
 
 @Component({
   selector: 'app-add-material',
@@ -8,13 +10,29 @@ import {NgForm} from "@angular/forms";
 })
 export class AddMaterialComponent implements OnInit {
 
-  constructor() { }
+  @Output() onMaterialAdd = new EventEmitter<Material>();
+  @Input() groups: Array<Group>;
+
+  constructor(private materialService: MaterialService) { }
 
   ngOnInit() {
   }
 
   onSubmit(form: NgForm){
-    console.log(form.value);
+    const {code, name, group, prefix, mark, unit, concentration} = form.value;
+
+    const groupObj = new Group(group, "");
+    const material = new Material(code, name, groupObj, prefix, mark, unit, concentration);
+    console.log(material);
+
+    this.materialService.addMaterial(material).subscribe((material: Material) => {
+      console.log(material);
+      form.reset();
+      this.onMaterialAdd.emit(material);
+    })
+
+
   }
+
 
 }

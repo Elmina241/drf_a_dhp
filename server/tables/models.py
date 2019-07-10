@@ -23,11 +23,11 @@ class Material(models.Model):
     group = models.ForeignKey('Material_group', on_delete=models.CASCADE)
     prefix = models.ForeignKey('Prefix', on_delete=models.CASCADE)
     mark = models.CharField(max_length=80)
-    ammount = models.FloatField()
+    ammount = models.FloatField(default = 0)
     reserved = models.FloatField(default = 0)
     unit = models.ForeignKey('Unit', on_delete=models.CASCADE)
     concentration = models.FloatField()
-    price = models.FloatField()
+    price = models.FloatField(default = 0)
     def __str__(self):
         full_name = self.name + ('' if self.mark == '-' else (' ' + self.mark))
         return full_name
