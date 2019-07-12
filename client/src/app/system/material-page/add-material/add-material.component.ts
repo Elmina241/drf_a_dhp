@@ -21,8 +21,8 @@ export class AddMaterialComponent implements OnInit {
   onSubmit(form: NgForm){
     const {code, name, group, prefix, mark, unit, concentration} = form.value;
 
-    const groupObj = new Group(group, "");
-    const material = new Material(code, name, groupObj, prefix, mark, unit, concentration);
+    //const groupObj = new Group(group, "");
+    const material = new Material(code, name, group, prefix, mark, unit, concentration);
     console.log(material);
 
     this.materialService.addMaterial(material).subscribe((material: Material) => {
