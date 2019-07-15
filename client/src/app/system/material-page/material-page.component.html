@@ -17,9 +17,9 @@
           </div>
         </div>
       </div>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        Удалены реактивы: 1, 2, 3
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <div *ngIf="message" class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="message=''">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -66,7 +66,7 @@
 </div>
 
 <ng-template #addItem let-modal class="modal-form">
-  <app-add-material [groups]="groups" (onMaterialAdd)="newMaterialAdded($event)"></app-add-material>
+  <app-add-material [groups]="groups" [modal]="modal" (onMaterialAdd)="newMaterialAdded($event)"></app-add-material>
 </ng-template>
 
 <!--<div class="modal fade" id="addItem">

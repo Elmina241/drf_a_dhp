@@ -19,6 +19,8 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
 
   closeResult: string;
 
+  message: string = "";
+
   constructor(private materialService: MaterialService, private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -36,6 +38,7 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
 
   newMaterialAdded(material: Material){
     this.materials.push(material);
+    this.message = `Добавлен реактив ${material.code} ${material.name}`;
   }
 
   open(content) {
