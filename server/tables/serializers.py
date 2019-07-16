@@ -14,7 +14,7 @@ class PrefixSerializer(serializers.ModelSerializer):
 
 class UnitSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Material_group
+        model = Unit
         fields = ('pk','name')
 
 class MaterialSerializer(serializers.ModelSerializer):

@@ -7,11 +7,12 @@
               <button type="button" class="btn btn-sm btn-outline-secondary" (click)="open(addItem)">
                 Добавить
               </button>
-              <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#delItem">
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="onSubmit(deleteForm)">
                 Удалить
               </button>
             </div>
             <select class="form-control form-control-sm outline-secondary">
+              <option value="-1">Все</option>
               <option *ngFor="let group of groups" value="{{ group.id }}">{{ group.name }}</option>
             </select>
           </div>
@@ -24,6 +25,7 @@
         </button>
       </div>
       <div class="table-responsive">
+        <form #deleteForm="ngForm">
         <table class="table table-striped table-sm">
           <thead>
           <tr>
@@ -36,16 +38,19 @@
           </tr>
           </thead>
           <tbody>
+
           <tr *ngFor="let item of materials">
-            <td><input type="checkbox" class=""></td>
+            <td><input type="checkbox" name="{{ item.pk }}" class="" ngModel></td>
             <td>{{ item.code }}</td>
             <td>{{ item.group.name }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.unit.name }}</td>
-            <td><i class="far fa-edit"></i></td>
+            <td><span (click)="openEditWin(item.pk, editItem)"><i class="far fa-edit"></i></span></td>
           </tr>
+
           </tbody>
         </table>
+          </form>
       </div>
 
 <div class="modal fade" id="delItem">
@@ -67,6 +72,10 @@
 
 <ng-template #addItem let-modal class="modal-form">
   <app-add-material [groups]="groups" [modal]="modal" (onMaterialAdd)="newMaterialAdded($event)"></app-add-material>
+</ng-template>
+
+<ng-template #editItem let-modal class="modal-form">
+  <app-edit-material [groups]="groups" [currentMaterial]="currentMaterial" [modal]="modal" (onMaterialEdit)="MaterialEdited($event)"></app-edit-material>
 </ng-template>
 
 <!--<div class="modal fade" id="addItem">

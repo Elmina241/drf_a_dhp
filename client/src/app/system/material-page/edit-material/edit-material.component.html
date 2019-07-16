@@ -1,35 +1,33 @@
-<div class="modal-dialog">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-<div class="modal-content modal-form">
-
-    <div class="modal-header">
+<div class="modal-form">
+<div class="modal-header">
       <h5 class="modal-title" id="addItemLabel">Редактирование реактива</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
+    <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
     <div class="modal-body">
       <h6>Артикул</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="code" #code="ngModel" required/>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentMaterial.code" name="e_code" #e_code="ngModel" required/>
       <h6>Химическое наименование</h6>
-      <input type="text" class="form-control form-control-sm" name="name" ngModel required/>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentMaterial.name" name="e_name" ngModel required/>
       <h6>Марка</h6>
-      <input type="text" class="form-control form-control-sm" name="mark" ngModel/>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentMaterial.mark" name="e_mark" ngModel/>
+      <h6>Префикс</h6>
+      <select class="form-control form-control-sm" name="e_prefix" id="e-select-prefix" [ngModel]="currentMaterial.prefix.pk">
+        <option *ngFor="let p of prefixes" [value]="p.pk">{{ p.name }}</option>
+      </select>
       <h6>Ед. измерения</h6>
-      <select class="form-control form-control-sm" name="unit" ngModel>
-        <option value="0">Кг</option>
-        <option value="1">Шт</option>
+      <select class="form-control form-control-sm" name="e_unit" id="e-select-unit" [ngModel]="currentMaterial.unit.pk">
+        <option *ngFor="let u of units" [value]="u.pk">{{ u.name }}</option>
       </select>
       <h6>Группа</h6>
-      <select class="form-control form-control-sm" name="group" ngModel>
-        <option value="0">ПАВ</option>
-        <option value="1">Краситель</option>
+      <select class="form-control form-control-sm" name="e_group" [ngModel]="currentMaterial.group.pk">
+        <option *ngFor="let g of groups" [value]="g.pk">{{ g.name }}</option>
       </select>
       <h6>Концентрация, %</h6>
-      <input type="number" min="0" max="100" class="form-control form-control-sm" name="concentration" ngModel required/>
+      <input type="number" min="0" max="100" [ngModel]="currentMaterial.concentration" class="form-control form-control-sm" name="e_concentration" ngModel required/>
     </div>
     <button type="submit" class="btn btn-save">Сохранить</button>
-
-</div>
     </form>
-</div>
+  </div>

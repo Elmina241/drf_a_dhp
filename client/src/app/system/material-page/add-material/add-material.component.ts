@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {MaterialService} from "../../shared/services/material.service";
-import {Group, Material, Prefix} from "../../shared/models/material.model";
+import {Group, Material, Prefix, Unit} from "../../shared/models/material.model";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -15,10 +15,17 @@ export class AddMaterialComponent implements OnInit {
   @Input() groups: Array<Group>;
   @Input() modal: NgbModalRef;
   prefixes: Array<Prefix>;
+  units: Array<Unit>;
 
   constructor(private materialService: MaterialService) { }
 
   ngOnInit() {
+    this.materialService.getUnits().subscribe((data: Array<Unit>)=>{
+        this.units = data;
+    });
+    this.materialService.getPrefixes().subscribe((data: Array<Prefix>)=>{
+        this.prefixes = data;
+    });
   }
 
   onSubmit(form: NgForm){
@@ -31,8 +38,6 @@ export class AddMaterialComponent implements OnInit {
       this.onMaterialAdd.emit(material);
       this.modal.close('Save click');
     })
-
-
   }
 
 

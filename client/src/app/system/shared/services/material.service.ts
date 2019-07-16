@@ -27,5 +27,21 @@ export class MaterialService extends BaseApi{
     return this.post('tables/materials/', material);
   }
 
+  deleteMaterial(materialId: number): Observable<any>{
+    return this.delete(`tables/materials/${materialId}`);
+  }
+
+  editMaterial(material: Material): Observable<Material>{
+    return this.put(`tables/materials/${material.pk}/`, material);
+  }
+
+  getUnits(): Observable<any>{
+    return this.get('tables/units');
+  }
+
+  getPrefixes(): Observable<any>{
+    return this.get('tables/prefixes');
+  }
+
 
 }

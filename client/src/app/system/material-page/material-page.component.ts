@@ -5,6 +5,7 @@ import {Subscription} from "rxjs/internal/Subscription";
 import {Observable} from "rxjs/internal/Observable";
 //import {Observable} from "rxjs/Observable";
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-material-page',
@@ -18,6 +19,8 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
   groups: Array<Group>;
 
   closeResult: string;
+  currentMaterialId: number;
+  currentMaterial: Material;
 
   message: string = "";
 
@@ -41,12 +44,44 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
     this.message = `Добавлен реактив ${material.code} ${material.name}`;
   }
 
+  MaterialEdited(material: Material){
+    let indx = this.findMaterial(material.pk);
+    this.materials[indx] = material;
+    this.message = `Отредактирован реактив ${material.code} ${material.name}`;
+  }
+
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed`;
     });
+  }
+
+  findMaterial(pk: number) :number{
+    for (let m in this.materials){
+      if (this.materials[m].pk == pk) return +m;
+    }
+    return -1;
+  }
+
+  openEditWin(pk: number, window: any){
+    this.currentMaterialId = this.findMaterial(pk);
+    this.currentMaterial = this.materials[this.currentMaterialId];
+    this.open(window);
+  }
+
+  onSubmit(form: NgForm){
+    this.message = 'Удалены реактивы: ';
+    for (let v in form.value){
+      if (form.value[v]){
+        this.materialService.deleteMaterial(+v).subscribe((data: any) => {
+          let index = this.findMaterial(+v);
+          this.message += `${this.materials[index].code} ${this.materials[index].name}; `;
+          this.materials.splice(index, 1);
+        });
+      }
+    }
   }
 
 }

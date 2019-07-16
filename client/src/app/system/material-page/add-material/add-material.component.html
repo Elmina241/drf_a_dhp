@@ -15,13 +15,11 @@
       <input type="text" class="form-control form-control-sm" name="mark" ngModel/>
       <h6>Префикс</h6>
       <select class="form-control form-control-sm" name="prefix" id="select-prefix" ngModel>
-        <option value="0">ПАВ</option>
-        <option value="1">-</option>
+        <option *ngFor="let p of prefixes" value="{{ p.pk }}">{{ p.name }}</option>
       </select>
       <h6>Ед. измерения</h6>
       <select class="form-control form-control-sm" name="unit" id="select-unit" ngModel>
-        <option value="0">Кг</option>
-        <option value="1">Шт</option>
+        <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}</option>
       </select>
       <h6>Группа</h6>
       <select class="form-control form-control-sm" name="group" ngModel>
