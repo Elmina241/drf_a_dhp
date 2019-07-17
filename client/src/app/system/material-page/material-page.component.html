@@ -11,9 +11,9 @@
                 Удалить
               </button>
             </div>
-            <select class="form-control form-control-sm outline-secondary">
-              <option value="-1">Все</option>
-              <option *ngFor="let group of groups" value="{{ group.id }}">{{ group.name }}</option>
+            <select class="form-control form-control-sm outline-secondary" id="selectGroup" (ngModel)="currentGroup" (change)="applyFilter()">
+              <option [value]="-1">Все</option>
+              <option *ngFor="let group of groups" [value]="group.pk">{{ group.name }}</option>
             </select>
           </div>
         </div>
@@ -39,7 +39,7 @@
           </thead>
           <tbody>
 
-          <tr *ngFor="let item of materials">
+          <tr *ngFor="let item of filteredMaterials">
             <td><input type="checkbox" name="{{ item.pk }}" class="" ngModel></td>
             <td>{{ item.code }}</td>
             <td>{{ item.group.name }}</td>

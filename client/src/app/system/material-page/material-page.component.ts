@@ -16,11 +16,13 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
 
   //subscription: Subscription;
   materials: Array<Material>;
+  filteredMaterials: Array<Material>;
   groups: Array<Group>;
 
   closeResult: string;
   currentMaterialId: number;
   currentMaterial: Material;
+  currentGroup: number = -1;
 
   message: string = "";
 
@@ -29,6 +31,7 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.materialService.getMaterial().subscribe((data: Array<Material>)=>{
         this.materials = data;
+        this.filteredMaterials = this.materials;
     });
     this.materialService.getGroups().subscribe((data: Array<Group>)=>{
         this.groups = data;
@@ -82,6 +85,16 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
         });
       }
     }
+  }
+
+  applyFilter(){
+    debugger
+    if (this.currentGroup == -1){
+      this.filteredMaterials = this.materials;
+    }
+    else this.filteredMaterials = this.materials.filter((m)=>{
+      return m.group.pk == this.currentGroup;
+    });
   }
 
 }

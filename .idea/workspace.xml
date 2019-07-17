@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8f5ec390-81ff-40f0-9b00-b763e1372ba9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/system/shared/services/material.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/system/shared/services/material.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/server/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tables/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/tables/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tables/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/tables/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tables/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/tables/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,14 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="edit-material.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.ts">
+      <file leaf-file-name="add-material.component.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="e#0#77#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="24" column="72" lean-forward="true" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
             </state>
           </provider>
         </entry>
@@ -52,20 +41,17 @@
       <file leaf-file-name="edit-material.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="61" lean-forward="true" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
+            <state relative-caret-position="136">
+              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="material.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/app/system/shared/services/material.service.ts">
+      <file leaf-file-name="add-material.component.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="544">
+              <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -73,10 +59,10 @@
       <file leaf-file-name="material-page.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+            <state relative-caret-position="225">
+              <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
               <folding>
-                <element signature="e#352#404#0" expanded="true" />
+                <element signature="e#0#61#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,11 +71,23 @@
       <file leaf-file-name="material-page.component.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="221">
+              <caret line="13" column="100" selection-start-line="13" selection-start-column="100" selection-end-line="13" selection-end-column="100" />
               <folding>
-                <element signature="e#1110#1117#1" expanded="true" />
-                <element signature="e#2212#2219#1" expanded="true" />
+                <element signature="e#1144#1151#1" expanded="true" />
+                <element signature="e#2385#2392#1" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="material.service.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/app/system/shared/services/material.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,10 +137,10 @@
         <option value="$PROJECT_DIR$/server/tables/urls.py" />
         <option value="$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.html" />
         <option value="$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.ts" />
-        <option value="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/system/shared/services/material.service.ts" />
         <option value="$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.html" />
+        <option value="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts" />
         <option value="$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.html" />
       </list>
     </option>
@@ -172,7 +170,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -197,23 +194,6 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
@@ -252,50 +232,11 @@
               <item name="material-page" type="462c0819:PsiDirectoryNode" />
               <item name="edit-material" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="services" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dhp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dhp" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="tables" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,6 +278,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -344,9 +286,9 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.44117647" />
-      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.42372882" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13965885" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.054466233" />
+      <window_info anchor="bottom" id="TypeScript" order="7" weight="0.27559912" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26545843" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -674,13 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="108" lean-forward="true" selection-start-line="10" selection-start-column="108" selection-end-line="10" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/system/shared/models/material.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -698,47 +633,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="55" />
+        <state relative-caret-position="408">
+          <caret line="24" column="72" lean-forward="true" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.html">
+    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="61" lean-forward="true" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
+        <state relative-caret-position="225">
+          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#61#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/system/shared/services/material.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
+        <state relative-caret-position="174">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.ts">
+    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/add-material/add-material.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="46" column="37" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-          <folding>
-            <element signature="e#352#404#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="544">
+          <caret line="36" column="19" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/edit-material/edit-material.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/app/system/material-page/material-page.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="16" lean-forward="true" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+        <state relative-caret-position="221">
+          <caret line="13" column="100" selection-start-line="13" selection-start-column="100" selection-end-line="13" selection-end-column="100" />
           <folding>
-            <element signature="e#1110#1117#1" expanded="true" />
-            <element signature="e#2212#2219#1" expanded="true" />
+            <element signature="e#1144#1151#1" expanded="true" />
+            <element signature="e#2385#2392#1" expanded="true" />
           </folding>
         </state>
       </provider>
