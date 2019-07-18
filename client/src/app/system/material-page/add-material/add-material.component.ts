@@ -39,6 +39,4 @@ export class AddMaterialComponent implements OnInit {
       this.modal.close('Save click');
     })
   }
-
-
 }

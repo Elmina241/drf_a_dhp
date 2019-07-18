@@ -1,0 +1,29 @@
+<div class="modal-form">
+<div class="modal-header">
+      <h5 class="modal-title" id="addItemLabel">Добавление тары</h5>
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="modal-body">
+      <h6>Артикул</h6>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentPacking.code" name="e_code" #code="ngModel" required/>
+      <h6>Вид</h6>
+      <select class="form-control form-control-sm" name="e_group" [ngModel]="currentPacking.group.pk">
+        <option *ngFor="let g of groups" [value]="g.pk">{{ g.name }}</option>
+      </select>
+      <h6>Форма</h6>
+      <input type="text" class="form-control form-control-sm" name="e_form" [ngModel]="currentPacking.form"/>
+      <h6>Цвет</h6>
+      <select class="form-control form-control-sm" name="e_color" id="select-color" [ngModel]="currentPacking.colour.pk">
+        <option *ngFor="let c of colors" [value]="c.pk">{{ c.name }}</option>
+      </select>
+      <h6>Материал</h6>
+      <select class="form-control form-control-sm" name="e_material" id="select-material" [ngModel]="currentPacking.mat.pk">
+        <option *ngFor="let m of materials" [value]="m.pk">{{ m.name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-save">Сохранить</button>
+    </form>
+  </div>

@@ -16,6 +16,19 @@ import {MaterialService} from "./shared/services/material.service";
 import {MomentPipe} from "./shared/pipes/moment.pipe";
 import { AddMaterialComponent } from './material-page/add-material/add-material.component';
 import { EditMaterialComponent } from './material-page/edit-material/edit-material.component';
+import { PackingPageComponent } from './packing-page/packing-page.component';
+import { CapsPageComponent } from './caps-page/caps-page.component';
+import { BoxingPageComponent } from './boxing-page/boxing-page.component';
+import { StickerPageComponent } from './sticker-page/sticker-page.component';
+import { AddPackingComponent } from './packing-page/add-packing/add-packing.component';
+import { EditPackingComponent } from './packing-page/edit-packing/edit-packing.component';
+import { AddCapComponent } from './caps-page/add-cap/add-cap.component';
+import { EditCapComponent } from './caps-page/edit-cap/edit-cap.component';
+import { AddBoxingComponent } from './boxing-page/add-boxing/add-boxing.component';
+import { EditBoxingComponent } from './boxing-page/edit-boxing/edit-boxing.component';
+import { AddStickerComponent } from './sticker-page/add-sticker/add-sticker.component';
+import { EditStickerComponent } from './sticker-page/edit-sticker/edit-sticker.component';
+import {PackingService} from "./shared/services/packing.service";
 
 @NgModule({
   imports: [
@@ -35,10 +48,23 @@ import { EditMaterialComponent } from './material-page/edit-material/edit-materi
     HeaderComponent,
     MomentPipe,
     AddMaterialComponent,
-    EditMaterialComponent
+    EditMaterialComponent,
+    PackingPageComponent,
+    CapsPageComponent,
+    BoxingPageComponent,
+    StickerPageComponent,
+    AddPackingComponent,
+    EditPackingComponent,
+    AddCapComponent,
+    EditCapComponent,
+    AddBoxingComponent,
+    EditBoxingComponent,
+    AddStickerComponent,
+    EditStickerComponent
   ],
   providers: [
-    MaterialService
+    MaterialService,
+    PackingService
   ]
 })
 export class SystemModule {}

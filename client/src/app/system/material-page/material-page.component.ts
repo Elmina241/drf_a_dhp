@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import {MaterialService} from "../shared/services/material.service";
 import {Group, Material} from "../shared/models/material.model";
 import {Subscription} from "rxjs/internal/Subscription";
@@ -23,6 +23,7 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
   currentMaterialId: number;
   currentMaterial: Material;
   currentGroup: number = -1;
+  isChecked: boolean = false;
 
   message: string = "";
 
@@ -74,6 +75,13 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
     this.open(window);
   }
 
+  checkList(form: NgForm){
+    this.isChecked = false;
+    for (let v in form.value) {
+      this.isChecked = this.isChecked || form.value[v];
+    }
+  }
+
   onSubmit(form: NgForm){
     this.message = 'Удалены реактивы: ';
     for (let v in form.value){
@@ -88,11 +96,10 @@ export class MaterialPageComponent implements OnInit, OnDestroy {
   }
 
   applyFilter(){
-    debugger
     if (this.currentGroup == -1){
       this.filteredMaterials = this.materials;
     }
-    else this.filteredMaterials = this.materials.filter((m)=>{
+    else this.filteredMaterials = this.materials.filter((m: any)=>{
       return m.group.pk == this.currentGroup;
     });
   }

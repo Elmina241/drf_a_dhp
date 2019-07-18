@@ -83,7 +83,7 @@ class ContainerGroupSerializer(serializers.ModelSerializer):
         model = Container_group
         fields = ('pk','name')
 
-class ColourSerializer(serializers.ModelSerializer):
+class ColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Colour
         fields = ('pk','name')
@@ -94,9 +94,16 @@ class ContainerMatSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class ContainerSerializer(serializers.ModelSerializer):
+    group = ContainerGroupSerializer(read_only=True)
+    colour = ColorSerializer(read_only=True)
+    mat = ContainerMatSerializer(read_only=True)
+    group_id = serializers.IntegerField(write_only=True)
+    colour_id = serializers.IntegerField(write_only=True)
+    mat_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Container
-        fields = ('pk','code', 'group', 'form', 'colour', 'mat')
+        fields = ('pk','code', 'group', 'form', 'colour', 'mat', 'colour_id', 'mat_id', 'group_id')
+        depth = 1
 
 #Модели для укупорки
 
