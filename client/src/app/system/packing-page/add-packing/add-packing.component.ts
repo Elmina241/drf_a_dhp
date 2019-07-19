@@ -15,9 +15,9 @@ export class AddPackingComponent implements OnInit {
 
   @Output() onPackingAdd = new EventEmitter<Packing>();
   @Input() modal: NgbModalRef;
-  groups: Array<Prefix>;
-  materials: Array<Unit>;
-  colors: Array<Unit>;
+  groups: Array<Group>;
+  materials: Array<PackingMaterial>;
+  colors: Array<Color>;
 
   constructor(private packingService: PackingService) { }
 

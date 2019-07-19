@@ -46,3 +46,31 @@ class ColorList(generics.ListCreateAPIView):
 class PackingMatList(generics.ListCreateAPIView):
     queryset = Container_mat.objects.all()
     serializer_class = ContainerMatSerializer
+
+class CapList(generics.ListCreateAPIView):
+    queryset = Cap.objects.all()
+    serializer_class = CapSerializer
+
+class CapDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cap.objects.all()
+    serializer_class = CapSerializer
+
+class CapGroupList(generics.ListCreateAPIView):
+    queryset = Cap_group.objects.all()
+    serializer_class = CapGroupSerializer
+
+class BoxingList(generics.ListCreateAPIView):
+    queryset = Boxing.objects.all()
+    serializer_class = BoxingSerializer
+
+class BoxingDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Boxing.objects.all()
+    serializer_class = BoxingSerializer
+
+class BoxingGroupList(generics.ListCreateAPIView):
+    queryset = Box_group.objects.all()
+    serializer_class = BoxGroupSerializer
+
+class BoxingMatList(generics.ListCreateAPIView):
+    queryset = Boxing_mat.objects.all()
+    serializer_class = BoxingMatSerializer

@@ -29,6 +29,8 @@ import { EditBoxingComponent } from './boxing-page/edit-boxing/edit-boxing.compo
 import { AddStickerComponent } from './sticker-page/add-sticker/add-sticker.component';
 import { EditStickerComponent } from './sticker-page/edit-sticker/edit-sticker.component';
 import {PackingService} from "./shared/services/packing.service";
+import {CapService} from "./shared/services/cap.service";
+import {BoxingService} from "./shared/services/boxing.service";
 
 @NgModule({
   imports: [
@@ -64,7 +66,9 @@ import {PackingService} from "./shared/services/packing.service";
   ],
   providers: [
     MaterialService,
-    PackingService
+    PackingService,
+    BoxingService,
+    CapService
   ]
 })
 export class SystemModule {}

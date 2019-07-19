@@ -1,3 +1,69 @@
-<p>
-  boxing-page works!
-</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
+        <h1 class="h2">Упаковка</h1>
+        <div class="btn-toolbar mb-6 mb-md-0">
+          <div class="form-inline">
+            <div class="btn-group mr-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="open(addItem)">
+                Добавить
+              </button>
+              <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="!isChecked" (click)="onSubmit(deleteForm)">
+                Удалить
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="message" class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="message=''">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="table-responsive">
+        <form #deleteForm="ngForm">
+        <table class="table table-striped table-sm">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Артикул</th>
+            <th>Наименование</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngFor="let item of boxing">
+            <td><input type="checkbox" name="{{ item.pk }}" (change)="checkList(deleteForm)" class="" ngModel></td>
+            <td>{{ item.code }}</td>
+            <td>{{ item.group.name }} {{ item.form }} {{ item.mat.name }} {{ item.colour.name }}</td>
+            <td><span title="Редактировать" (click)="openEditWin(item.pk, editItem)"><i class="far fa-edit"></i></span></td>
+          </tr>
+
+          </tbody>
+        </table>
+          </form>
+      </div>
+<div class="modal fade" id="delItem">
+  <div class="modal-dialog">
+    <div class="modal-content modal-form">
+      <div class="modal-header">
+        <h5 class="modal-title" id="delItemLabel">Подтверждение удаления</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Удалить <span>укупорку?</span></h6>
+      </div>
+      <button type="button" class="btn btn-save">Удалить</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #addItem let-modal class="modal-form">
+  <app-add-boxing [modal]="modal" (onBoxingAdd)="newBoxingAdded($event)"></app-add-boxing>
+</ng-template>
+
+<ng-template #editItem let-modal class="modal-form">
+  <app-edit-boxing [currentBoxing]="currentBoxing" [modal]="modal" (onBoxingEdit)="BoxingEdited($event)"></app-edit-boxing>
+</ng-template>

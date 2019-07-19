@@ -14,9 +14,9 @@ export class EditPackingComponent implements OnInit {
 
   @Output() onPackingEdit = new EventEmitter<Packing>();
   @Input() modal: NgbModalRef;
-  groups: Array<Prefix>;
-  materials: Array<Unit>;
-  colors: Array<Unit>;
+  groups: Array<Group>;
+  materials: Array<PackingMaterial>;
+  colors: Array<Color>;
   @Input() currentPacking: Packing;
 
   constructor(private packingService: PackingService) { }

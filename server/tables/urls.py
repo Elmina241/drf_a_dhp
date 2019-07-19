@@ -17,6 +17,13 @@ urlpatterns = [
     path('colors/', views.ColorList.as_view()),
     path('packing_materials/', views.PackingMatList.as_view()),
     path('packing/<int:pk>/', views.PackingDetail.as_view()),
+    path('caps/', views.CapList.as_view()),
+    path('cap_groups/', views.CapGroupList.as_view()),
+    path('caps/<int:pk>/', views.CapDetail.as_view()),
+    path('boxing/', views.BoxingList.as_view()),
+    path('boxing_groups/', views.BoxingGroupList.as_view()),
+    path('boxing_materials/', views.BoxingMatList.as_view()),
+    path('boxing/<int:pk>/', views.BoxingDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

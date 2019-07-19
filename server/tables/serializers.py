@@ -36,11 +36,6 @@ class ProductGroupSerializer(serializers.ModelSerializer):
         model = Product_group
         fields = ('pk','name')
 
-class ProductFormSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product_form
-        fields = ('pk','name')
-
 class ProductUseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product_use
@@ -52,9 +47,16 @@ class ProductMarkSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class ProductSerializer(serializers.ModelSerializer):
+    group = ProductGroupSerializer(read_only=True)
+    use = ProductUseSerializer(read_only=True)
+    mark = ProductMarkSerializer(read_only=True)
+    production = ProductionSerializer(read_only=True)
+    group_id = serializers.IntegerField(write_only=True)
+    use_id = serializers.IntegerField(write_only=True)
+    mark_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Product
-        fields = ('pk','name', 'code', 'group', 'use', 'option', 'detail', 'mark', 'production')
+        fields = ('pk','name', 'code', 'group', 'use', 'option', 'detail', 'mark', 'production', 'group_id', 'use_id', 'mark_id')
 
 #Модели для рецептов
 
@@ -113,9 +115,15 @@ class CapGroupSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class CapSerializer(serializers.ModelSerializer):
+    group = CapGroupSerializer(read_only=True)
+    colour = ColorSerializer(read_only=True)
+    mat = ContainerMatSerializer(read_only=True)
+    group_id = serializers.IntegerField(write_only=True)
+    colour_id = serializers.IntegerField(write_only=True)
+    mat_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Cap
-        fields = ('pk','code', 'group', 'form', 'colour', 'mat')
+        fields = ('pk','code', 'group', 'form', 'colour', 'mat', 'colour_id', 'mat_id', 'group_id')
 
 #Модели для упаковки
 
@@ -130,9 +138,15 @@ class BoxingMatSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class BoxingSerializer(serializers.ModelSerializer):
+    group = BoxGroupSerializer(read_only=True)
+    colour = ColorSerializer(read_only=True)
+    mat = BoxingMatSerializer(read_only=True)
+    group_id = serializers.IntegerField(write_only=True)
+    colour_id = serializers.IntegerField(write_only=True)
+    mat_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Boxing
-        fields = ('pk','code', 'group', 'form', 'colour', 'mat')
+        fields = ('pk','code', 'group', 'form', 'colour', 'mat', 'colour_id', 'mat_id', 'group_id')
 
 #Модели для этикетки
 
