@@ -11,6 +11,7 @@ import {ComplexCompsPageComponent} from "./complex-comps-page/complex-comps-page
 import {PackingPageComponent} from "./packing-page/packing-page.component";
 import {CapsPageComponent} from "./caps-page/caps-page.component";
 import {BoxingPageComponent} from "./boxing-page/boxing-page.component";
+import {StickerPageComponent} from "./sticker-page/sticker-page.component";
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       {path: 'composition', component: CompositionPageComponent},
       {path: 'formula', component: FormulaPageComponent},
       {path: 'storage', component: StoragePageComponent},
+      {path: 'stickers', component: StickerPageComponent},
       {path: 'complex-comps', component: ComplexCompsPageComponent}
     ]
   }

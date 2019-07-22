@@ -74,3 +74,35 @@ class BoxingGroupList(generics.ListCreateAPIView):
 class BoxingMatList(generics.ListCreateAPIView):
     queryset = Boxing_mat.objects.all()
     serializer_class = BoxingMatSerializer
+
+class ProductList(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductGroupList(generics.ListCreateAPIView):
+    queryset = Product_group.objects.all()
+    serializer_class = ProductGroupSerializer
+
+class ProductUseList(generics.ListCreateAPIView):
+    queryset = Product_use.objects.all()
+    serializer_class = ProductUseSerializer
+
+class ProductMarkList(generics.ListCreateAPIView):
+    queryset = Product_mark.objects.all()
+    serializer_class = ProductMarkSerializer
+
+class StickerList(generics.ListCreateAPIView):
+    queryset = Sticker.objects.all()
+    serializer_class = StickerSerializer
+
+class StickerDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Sticker.objects.all()
+    serializer_class = StickerSerializer
+
+class StickerPartList(generics.ListCreateAPIView):
+    queryset = Sticker_part.objects.all()
+    serializer_class = StickerPartSerializer

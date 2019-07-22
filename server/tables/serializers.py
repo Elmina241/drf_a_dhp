@@ -46,11 +46,18 @@ class ProductMarkSerializer(serializers.ModelSerializer):
         model = Product_mark
         fields = ('pk','name')
 
+class ProductionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Production
+        fields = ('pk', 'composition', 'container', 'cap', 'sticker', 'boxing',
+                  'compAmount', 'compUnit', 'contAmount', 'contUnit', 'capAmount', 'capUnit', 'stickerAmount',
+                  'stickerUnit', 'boxingAmount', 'boxingUnit')
+
 class ProductSerializer(serializers.ModelSerializer):
     group = ProductGroupSerializer(read_only=True)
     use = ProductUseSerializer(read_only=True)
-    mark = ProductMarkSerializer(read_only=True)
     production = ProductionSerializer(read_only=True)
+    mark = ProductMarkSerializer(read_only=True)
     group_id = serializers.IntegerField(write_only=True)
     use_id = serializers.IntegerField(write_only=True)
     mark_id = serializers.IntegerField(write_only=True)
@@ -156,18 +163,13 @@ class StickerPartSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class StickerSerializer(serializers.ModelSerializer):
+    product = ProductSerializer(read_only=True)
+    part = StickerPartSerializer(read_only=True)
+    product_id = serializers.IntegerField(write_only=True)
+    part_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Sticker
-        fields = ('pk','code', 'product', 'part')
-
-#Модели для производства
-
-class ProductionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Production
-        fields = ('pk','composition', 'container', 'cap', 'sticker', 'boxing',
-                  'compAmount', 'compUnit', 'contAmount', 'contUnit', 'capAmount', 'capUnit', 'stickerAmount',
-                  'stickerUnit', 'boxingAmount', 'boxingUnit')
+        fields = ('pk','code', 'product', 'part', 'product_id', 'part_id')
 
 #Модели для хранилищ
 

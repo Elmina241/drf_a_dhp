@@ -13,4 +13,8 @@ admin.site.register(Container_group)
 admin.site.register(Cap_group)
 admin.site.register(Box_group)
 admin.site.register(Boxing_mat)
+admin.site.register(Product_group)
+admin.site.register(Product_use)
+admin.site.register(Product_mark)
+admin.site.register(Sticker_part)
 

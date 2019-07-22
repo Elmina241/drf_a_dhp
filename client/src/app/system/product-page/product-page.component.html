@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
-        <h1 class="h2">Реактивы</h1>
+        <h1 class="h2">Продукция</h1>
         <div class="btn-toolbar mb-6 mb-md-0">
           <div class="form-inline">
             <div class="btn-group mr-2">
@@ -30,20 +30,18 @@
           <tr>
             <th></th>
             <th>Артикул</th>
-            <th>Группа</th>
             <th>Наименование</th>
-            <th>Ед. изм.</th>
+            <th>Группа</th>
             <th></th>
           </tr>
           </thead>
           <tbody>
 
-          <tr *ngFor="let item of filteredMaterials">
+          <tr *ngFor="let item of filteredProducts">
             <td><input type="checkbox" name="{{ item.pk }}" (change)="checkList(deleteForm)" class="" ngModel></td>
             <td>{{ item.code }}</td>
-            <td>{{ item.group.name }}</td>
             <td>{{ item.name }}</td>
-            <td>{{ item.unit.name }}</td>
+            <td>{{ item.group.name }}</td>
             <td><span title="Редактировать" (click)="openEditWin(item.pk, editItem)"><i class="far fa-edit"></i></span></td>
           </tr>
 
@@ -69,10 +67,10 @@
   </div>
 </div>
 
-<!--<ng-template #addItem let-modal class="modal-form">
-  <app-add-material [groups]="groups" [modal]="modal" (onMaterialAdd)="newMaterialAdded($event)"></app-add-material>
+<ng-template #addItem let-modal class="modal-form">
+  <app-add-product [groups]="groups" [modal]="modal" (onProductAdd)="newProductAdded($event)"></app-add-product>
 </ng-template>
 
 <ng-template #editItem let-modal class="modal-form">
-  <app-edit-material [groups]="groups" [currentMaterial]="currentMaterial" [modal]="modal" (onMaterialEdit)="MaterialEdited($event)"></app-edit-material>
-</ng-template>-->
+  <app-edit-product [groups]="groups" [currentProduct]="currentProduct" [modal]="modal" (onProductEdit)="ProductEdited($event)"></app-edit-product>
+</ng-template>

@@ -1,0 +1,33 @@
+<div class="modal-form">
+<div class="modal-header">
+      <h5 class="modal-title" id="addItemLabel">Редактирование продукции</h5>
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+    <div class="modal-body">
+      <h6>Артикул</h6>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.code" name="e_code" #e_code="ngModel" required/>
+      <h6>Краткое наименование</h6>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.name" name="e_name" ngModel required/>
+      <h6>Группа</h6>
+      <select class="form-control form-control-sm" name="e_group" [ngModel]="currentProduct.group.pk">
+        <option *ngFor="let g of groups" [value]="g.pk">{{ g.name }}</option>
+      </select>
+      <h6>Назначение</h6>
+      <select class="form-control form-control-sm" name="e_use" id="e-select-use" [ngModel]="currentProduct.use.pk">
+        <option *ngFor="let u of uses" [value]="u.pk">{{ u.name }}</option>
+      </select>
+      <h6>Варианты</h6>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.option" name="e_option" ngModel required/>
+      <h6>Уточнение</h6>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.detail" name="e_detail" ngModel required/>
+      <h6>Марка</h6>
+      <select class="form-control form-control-sm" name="e_mark" [ngModel]="currentProduct.mark.pk">
+        <option *ngFor="let m of marks" [value]="m.pk">{{ m.name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-save">Сохранить</button>
+    </form>
+  </div>

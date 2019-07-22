@@ -31,6 +31,10 @@ import { EditStickerComponent } from './sticker-page/edit-sticker/edit-sticker.c
 import {PackingService} from "./shared/services/packing.service";
 import {CapService} from "./shared/services/cap.service";
 import {BoxingService} from "./shared/services/boxing.service";
+import {ProductService} from "./shared/services/product.service";
+import { AddProductComponent } from './product-page/add-product/add-product.component';
+import { EditProductComponent } from './product-page/edit-product/edit-product.component';
+import {StickerService} from "./shared/services/sticker.service";
 
 @NgModule({
   imports: [
@@ -62,12 +66,16 @@ import {BoxingService} from "./shared/services/boxing.service";
     AddBoxingComponent,
     EditBoxingComponent,
     AddStickerComponent,
-    EditStickerComponent
+    EditStickerComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   providers: [
     MaterialService,
     PackingService,
     BoxingService,
+    ProductService,
+    StickerService,
     CapService
   ]
 })

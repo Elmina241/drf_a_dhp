@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {MaterialService} from "../shared/services/material.service";
-import {Group, Material} from "../shared/models/material.model";
+import {Group} from "../shared/models/material.model";
+import {Product} from "../shared/models/product.model";
+import {ProductService} from "../shared/services/product.service";
 
 @Component({
   selector: 'app-product-page',
@@ -11,26 +12,26 @@ import {Group, Material} from "../shared/models/material.model";
 })
 export class ProductPageComponent implements OnInit {
 
-  materials: Array<Material>;
-  filteredMaterials: Array<Material>;
+  products: Array<Product>;
+  filteredProducts: Array<Product>;
   groups: Array<Group>;
 
   closeResult: string;
-  currentMaterialId: number;
-  currentMaterial: Material;
+  currentProductId: number;
+  currentProduct: Product;
   currentGroup: number = -1;
   isChecked: boolean = false;
 
   message: string = "";
 
-  constructor(private materialService: MaterialService, private modalService: NgbModal) { }
+  constructor(private productService: ProductService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.materialService.getMaterial().subscribe((data: Array<Material>)=>{
-        this.materials = data;
-        this.filteredMaterials = this.materials;
+    this.productService.getProduct().subscribe((data: Array<Product>)=>{
+        this.products = data;
+        this.filteredProducts = this.products;
     });
-    this.materialService.getGroups().subscribe((data: Array<Group>)=>{
+    this.productService.getProductGroups().subscribe((data: Array<Group>)=>{
         this.groups = data;
     });
   }
@@ -39,15 +40,15 @@ export class ProductPageComponent implements OnInit {
     //this.subscription.unsubscribe();
   }
 
-  newMaterialAdded(material: Material){
-    this.materials.push(material);
-    this.message = `Добавлен реактив ${material.code} ${material.name}`;
+  newProductAdded(product: Product){
+    this.products.push(product);
+    this.message = `Добавлен продукт ${product.code} ${product.name}`;
   }
 
-  MaterialEdited(material: Material){
-    let indx = this.findMaterial(material.pk);
-    this.materials[indx] = material;
-    this.message = `Отредактирован реактив ${material.code} ${material.name}`;
+  ProductEdited(product: Product){
+    let indx = this.findObj(product.pk);
+    this.products[indx] = product;
+    this.message = `Отредактирован продукт ${product.code} ${product.name}`;
   }
 
   open(content) {
@@ -58,16 +59,16 @@ export class ProductPageComponent implements OnInit {
     });
   }
 
-  findMaterial(pk: number) :number{
-    for (let m in this.materials){
-      if (this.materials[m].pk == pk) return +m;
+  findObj(pk: number) :number{
+    for (let p in this.products){
+      if (this.products[p].pk == pk) return +p;
     }
     return -1;
   }
 
   openEditWin(pk: number, window: any){
-    this.currentMaterialId = this.findMaterial(pk);
-    this.currentMaterial = this.materials[this.currentMaterialId];
+    this.currentProductId = this.findObj(pk);
+    this.currentProduct = this.products[this.currentProductId];
     this.open(window);
   }
 
@@ -79,13 +80,13 @@ export class ProductPageComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    this.message = 'Удалены реактивы: ';
+    this.message = 'Удалена продукция: ';
     for (let v in form.value){
       if (form.value[v]){
-        this.materialService.deleteMaterial(+v).subscribe((data: any) => {
-          let index = this.findMaterial(+v);
-          this.message += `${this.materials[index].code} ${this.materials[index].name}; `;
-          this.materials.splice(index, 1);
+        this.productService.deleteProduct(+v).subscribe((data: any) => {
+          let index = this.findObj(+v);
+          this.message += `${this.products[index].code} ${this.products[index].name}; `;
+          this.products.splice(index, 1);
         });
       }
     }
@@ -93,9 +94,9 @@ export class ProductPageComponent implements OnInit {
 
   applyFilter(){
     if (this.currentGroup == -1){
-      this.filteredMaterials = this.materials;
+      this.filteredProducts = this.products;
     }
-    else this.filteredMaterials = this.materials.filter((m: any)=>{
+    else this.filteredProducts = this.products.filter((m: any)=>{
       return m.group.pk == this.currentGroup;
     });
   }

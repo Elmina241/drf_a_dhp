@@ -1,3 +1,23 @@
-<p>
-  edit-sticker works!
-</p>
+<div class="modal-form">
+<div class="modal-header">
+      <h5 class="modal-title" id="addItemLabel">Редактирование этикетки</h5>
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="modal-body">
+      <h6>Артикул</h6>
+      <input type="text" class="form-control form-control-sm" [ngModel]="currentSticker.code" name="e_code" #code="ngModel" required/>
+      <h6>Продукт</h6>
+      <select class="form-control form-control-sm" name="e_product" [ngModel]="currentSticker.product.pk">
+        <option *ngFor="let p of products" [value]="p.pk">{{ p.name }}</option>
+      </select>
+      <h6>Часть</h6>
+      <select class="form-control form-control-sm" name="e_part" id="select-color" [ngModel]="currentSticker.part.pk">
+        <option *ngFor="let p of parts" [value]="p.pk">{{ p.name }}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-save">Сохранить</button>
+    </form>
+  </div>
