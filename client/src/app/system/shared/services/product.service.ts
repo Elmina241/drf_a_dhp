@@ -22,6 +22,10 @@ export class ProductService extends BaseApi{
     return this.get('tables/product_groups');
   }
 
+  getProductForms(): Observable<any>{
+    return this.get('tables/product_forms');
+  }
+
   addProduct(product: Product): Observable<Product>{
     return this.post('tables/products/', product);
   }

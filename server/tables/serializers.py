@@ -41,6 +41,11 @@ class ProductUseSerializer(serializers.ModelSerializer):
         model = Product_use
         fields = ('pk','name')
 
+class ProductFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_form
+        fields = ('pk','name')
+
 class ProductMarkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product_mark
@@ -72,18 +77,32 @@ class CompositionGroupSerializer(serializers.ModelSerializer):
         model = Composition_group
         fields = ('pk','name')
 
+class ComponentsSerializer(serializers.ModelSerializer):
+    comp_id = serializers.IntegerField(write_only=True)
+    mat = MaterialSerializer(read_only=True)
+    mat_id = serializers.IntegerField(write_only=True)
+    class Meta:
+        model = Components
+        fields = ('pk', 'mat', 'comp_id', 'mat_id', 'min', 'max')
+
 class CompositionSerializer(serializers.ModelSerializer):
+    group = CompositionGroupSerializer(read_only=True)
+    group_id = serializers.IntegerField(write_only=True)
+    form = ProductFormSerializer(read_only=True)
+    form_id = serializers.IntegerField(write_only=True)
+    components = ComponentsSerializer(many=True)
     class Meta:
         model = Composition
         fields = ('pk','name', 'code', 'sgr', 'sh_life',
-                  'date', 'package', 'standard', 'certificate',
-                  'declaration', 'cur_batch', 'group', 'form', 'isFinal')
+                  'date', 'comp_package', 'standard', 'certificate',
+                  'declaration', 'cur_batch', 'components', 'group', 'group_id', 'form', 'form_id', 'isFinal')
 
-
-class ComponentsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Components
-        fields = ('pk','comp', 'mat', 'min', 'max')
+    def create(self, validated_data):
+        components_data = validated_data.pop('components')
+        composition = Composition.objects.create(**validated_data)
+        for component_data in components_data:
+            Components.objects.create(comp=composition, **component_data)
+        return composition
 
 #Модели для тары
 

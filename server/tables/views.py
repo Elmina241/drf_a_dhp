@@ -95,6 +95,10 @@ class ProductMarkList(generics.ListCreateAPIView):
     queryset = Product_mark.objects.all()
     serializer_class = ProductMarkSerializer
 
+class ProductFormList(generics.ListCreateAPIView):
+    queryset = Product_form.objects.all()
+    serializer_class = ProductFormSerializer
+
 class StickerList(generics.ListCreateAPIView):
     queryset = Sticker.objects.all()
     serializer_class = StickerSerializer
@@ -106,3 +110,15 @@ class StickerDetail(generics.RetrieveUpdateDestroyAPIView):
 class StickerPartList(generics.ListCreateAPIView):
     queryset = Sticker_part.objects.all()
     serializer_class = StickerPartSerializer
+
+class CompositionList(generics.ListCreateAPIView):
+    queryset = Composition.objects.all()
+    serializer_class = CompositionSerializer
+
+class CompositionDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Composition.objects.all()
+    serializer_class = CompositionSerializer
+
+class CompositionGroupList(generics.ListCreateAPIView):
+    queryset = Composition_group.objects.all()
+    serializer_class = CompositionGroupSerializer

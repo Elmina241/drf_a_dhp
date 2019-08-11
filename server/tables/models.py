@@ -94,7 +94,7 @@ class Composition(models.Model):
     sgr = models.CharField(max_length=80)
     sh_life = models.IntegerField(default = 24)
     date = models.DateField(null = True)
-    package = models.CharField(max_length=80, null = True)
+    comp_package = models.CharField(max_length=80, null = True)
     standard = models.CharField(max_length=80, null = True)
     certificate = models.CharField(max_length=80, null = True)
     declaration = models.CharField(max_length=80, null = True)
@@ -107,7 +107,7 @@ class Composition(models.Model):
     def get_name(self):
         return self.code + " " + self.name
     def get_package(self):
-        res = self.package + " по "
+        res = self.comp_package + " по "
         prods = Production.objects.filter(composition = self)
         amms = set()
         for p in prods:
@@ -122,7 +122,7 @@ class Composition(models.Model):
                 res = res + " г"
         return res
     def get_package_pass(self):
-        res = self.package + " по "
+        res = self.comp_package + " по "
         prods = Production.objects.filter(composition = self)
         amms = set()
         for p in prods:

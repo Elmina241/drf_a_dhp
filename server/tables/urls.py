@@ -28,10 +28,14 @@ urlpatterns = [
     path('product_groups/', views.ProductGroupList.as_view()),
     path('uses/', views.ProductUseList.as_view()),
     path('marks/', views.ProductMarkList.as_view()),
+    path('product_forms/', views.ProductFormList.as_view()),
     path('products/<int:pk>/', views.ProductDetail.as_view()),
     path('stickers/', views.StickerList.as_view()),
     path('parts/', views.StickerPartList.as_view()),
     path('stickers/<int:pk>/', views.StickerDetail.as_view()),
+    path('compositions/', views.CompositionList.as_view()),
+    path('composition_groups/', views.CompositionGroupList.as_view()),
+    path('compositions/<int:pk>/', views.CompositionDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

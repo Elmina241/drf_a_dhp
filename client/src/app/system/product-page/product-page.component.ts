@@ -59,6 +59,10 @@ export class ProductPageComponent implements OnInit {
     });
   }
 
+   openLg(content) {
+    this.modalService.open(content, { size: 'lg' });
+  }
+
   findObj(pk: number) :number{
     for (let p in this.products){
       if (this.products[p].pk == pk) return +p;

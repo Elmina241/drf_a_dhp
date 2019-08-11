@@ -1,28 +1,46 @@
 <div class="modal-form">
-<div class="modal-header">
-      <h5 class="modal-title" id="addItemLabel">Добавление продукции</h5>
-      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <div class="modal-body">
-      <h6>Артикул</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="code" #code="ngModel" required/>
-      <h6>Краткое наименование</h6>
-      <input type="text" class="form-control form-control-sm" name="name" ngModel required/>
-      <h6>Группа</h6>
-      <select class="form-control form-control-sm" name="group" id="select-group" ngModel>
-        <option *ngFor="let g of groups" value="{{ g.pk }}">{{ g.name }}</option>
-      </select>
-      <h6>Назначение</h6>
-      <select class="form-control form-control-sm" name="use" id="select-use" ngModel>
-        <option *ngFor="let u of uses" value="{{ u.pk }}">{{ u.name }}</option>
-      </select>
-      <h6>Варианты</h6>
-      <input type="text" class="form-control form-control-sm" name="option" ngModel required/>
-      <h6>Уточнение</h6>
-      <input type="text" class="form-control form-control-sm" name="detail" ngModel required/>
+  <div class="modal-header">
+    <h5 class="modal-title" id="addItemLabel">Добавление продукции</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="modal-body container">
+      <div class="row">
+        <div class="col">
+          <h6>Артикул</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="code" #code="ngModel" required/>
+        </div>
+        <div class="col">
+          <h6>Краткое наименование</h6>
+          <input type="text" class="form-control form-control-sm" name="name" ngModel required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Группа</h6>
+          <select class="form-control form-control-sm" name="group" id="select-group" ngModel>
+            <option *ngFor="let g of groups" value="{{ g.pk }}">{{ g.name }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <h6>Назначение</h6>
+          <select class="form-control form-control-sm" name="use" id="select-use" ngModel>
+            <option *ngFor="let u of uses" value="{{ u.pk }}">{{ u.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Варианты</h6>
+          <input type="text" class="form-control form-control-sm" name="option" ngModel required/>
+        </div>
+        <div class="col">
+          <h6>Уточнение</h6>
+          <input type="text" class="form-control form-control-sm" name="detail" ngModel required/>
+        </div>
+      </div>
       <h6>Марка</h6>
       <select class="form-control form-control-sm" name="mark" id="select-mark" ngModel>
         <option *ngFor="let m of marks" value="{{ m.pk }}">{{ m.name }}</option>
@@ -30,71 +48,73 @@
       <h6>Комплект</h6>
       <table class="table table-sm">
         <thead>
-          <tr>
-            <th></th>
-            <th>Кол-во в фасовке</th>
-            <th>Ед. изм.</th>
-          </tr>
+        <tr>
+          <th></th>
+          <th>Кол-во в фасовке</th>
+          <th>Ед. изм.</th>
+        </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <select class="form-control form-control-sm">
-                <option *ngFor="let c of caps" value="{{ c.pk }}">{{ c.group.name }} {{ c.form }} {{ c.mat.name }} {{ c.colour.name }}</option>
-              </select>
-            </td>
-            <td>
-              <input type="number" class="form-control form-control-sm" name=""  required/>
-            </td>
-            <td>
-              <select class="form-control-sm form-control">
-                <option>
-                  кг.
-                </option>
-              </select>
-            </td>
-          </tr>
         <tr>
-            <td>
-              <select class="form-control-sm form-control">
-                <option>
-                  Паста
-                </option>
-              </select>
-            </td>
-            <td>
-              <input type="number" class="form-control form-control-sm" name=""  required/>
-            </td>
-            <td>
-              <select class="form-control-sm form-control">
-                <option>
-                  кг.
-                </option>
-              </select>
-            </td>
-          </tr>
+          <td>
+            <select class="form-control form-control-sm">
+              <option *ngFor="let c of caps" value="{{ c.pk }}">{{ c.group.name }} {{ c.form }} {{ c.mat.name }} {{
+                c.colour.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" name="" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control">
+              <option>
+                кг.
+              </option>
+            </select>
+          </td>
+        </tr>
         <tr>
-            <td>
-              <select class="form-control-sm form-control">
-                <option>
-                  Паста
-                </option>
-              </select>
-            </td>
-            <td>
-              <input type="number" class="form-control form-control-sm" name=""  required/>
-            </td>
-            <td>
-              <select class="form-control-sm form-control">
-                <option>
-                  кг.
-                </option>
-              </select>
-            </td>
-          </tr>
+          <td>
+            <select class="form-control-sm form-control">
+              <option>
+                Паста
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" name="" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control">
+              <option>
+                кг.
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control-sm form-control">
+              <option>
+                Паста
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" name="" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control">
+              <option>
+                кг.
+              </option>
+            </select>
+          </td>
+        </tr>
         </tbody>
       </table>
     </div>
     <button type="submit" class="btn btn-save">Сохранить</button>
-    </form>
-  </div>
+  </form>
+</div>

@@ -35,6 +35,9 @@ import {ProductService} from "./shared/services/product.service";
 import { AddProductComponent } from './product-page/add-product/add-product.component';
 import { EditProductComponent } from './product-page/edit-product/edit-product.component';
 import {StickerService} from "./shared/services/sticker.service";
+import { AddCompositionComponent } from './composition-page/add-composition/add-composition.component';
+import { EditCompositionComponent } from './composition-page/edit-composition/edit-composition.component';
+import {CompositionService} from "./shared/services/composition.service";
 
 @NgModule({
   imports: [
@@ -68,7 +71,9 @@ import {StickerService} from "./shared/services/sticker.service";
     AddStickerComponent,
     EditStickerComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    AddCompositionComponent,
+    EditCompositionComponent
   ],
   providers: [
     MaterialService,
@@ -76,7 +81,8 @@ import {StickerService} from "./shared/services/sticker.service";
     BoxingService,
     ProductService,
     StickerService,
-    CapService
+    CapService,
+    CompositionService
   ]
 })
 export class SystemModule {}
