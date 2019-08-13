@@ -38,6 +38,8 @@ export class CompComponent {
     public pk: number,
     public mat_id: number,
     public min: number,
-    public max: number
+    public max: number,
+    public name?: string,
+    public code?: string
   ){}
 }

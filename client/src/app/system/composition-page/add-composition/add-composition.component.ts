@@ -19,7 +19,10 @@ export class AddCompositionComponent implements OnInit {
   @Input() modal: NgbModalRef;
   forms: Array<ProductForm>;
   materials: Array<Material>;
-  components: Array<CompComponent>;
+  components: Array<CompComponent> = [
+    new CompComponent(0, 0, 0, 80, 'Вода', 'ВД01'),
+    new CompComponent(3, 0, 10, 80, 'Краситель', 'КР01')
+  ];
 
   constructor(private compositionService: CompositionService,
               private productService: ProductService,

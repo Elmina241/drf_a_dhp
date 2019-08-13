@@ -1,77 +1,106 @@
 <div class="modal-form">
-<div class="modal-header">
-      <h5 class="modal-title" id="addItemLabel">Добавление рецепта</h5>
-      <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <div class="modal-header">
+    <h5 class="modal-title" id="addItemLabel">Добавление рецепта</h5>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="modal-body">
       <div class="row">
-    <div class="col">
-      <h6>Код</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="code" #code="ngModel" required/>
-    </div>
-      <div class="col">
-      <h6>Наименование</h6>
-      <input type="text" class="form-control form-control-sm" name="name" ngModel required/>
-      </div></div>
-      <div class="row">
-    <div class="col">
-      <h6>Форма</h6>
-      <select class="form-control form-control-sm" name="prForm" id="select-form" ngModel>
-        <option *ngFor="let f of forms" value="{{ f.pk }}">{{ f.name }}</option>
-      </select>
-      </div>
-      <div class="col">
-      <h6>Группа</h6>
-      <select class="form-control form-control-sm" name="group" id="select-group" ngModel>
-        <option *ngFor="let g of groups" value="{{ g.pk }}">{{ g.name }}</option>
-      </select>
-        </div></div>
-      <div class="row">
-    <div class="col">
-      <h6>СГР</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="sgr" #code="ngModel" required/>
-      </div>
-      <div class="col">
-      <h6>Тип композиции</h6>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" ngModel name="isFinal" id="isFinalCheck" required/>
-          <label class="form-check-label" for="isFinalCheck">
-    Технологическая
-  </label>
+        <div class="col">
+          <h6>Код</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="code" #code="ngModel" required/>
         </div>
-        </div></div>
+        <div class="col">
+          <h6>Наименование</h6>
+          <input type="text" class="form-control form-control-sm" name="name" ngModel required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Форма</h6>
+          <select class="form-control form-control-sm" name="prForm" id="select-form" ngModel>
+            <option *ngFor="let f of forms" value="{{ f.pk }}">{{ f.name }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <h6>Группа</h6>
+          <select class="form-control form-control-sm" name="group" id="select-group" ngModel>
+            <option *ngFor="let g of groups" value="{{ g.pk }}">{{ g.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>СГР</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="sgr" #code="ngModel" required/>
+        </div>
+        <div class="col">
+          <h6>Тип композиции</h6>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" ngModel name="isFinal" id="isFinalCheck" required/>
+            <label class="form-check-label" for="isFinalCheck">
+              Технологическая
+            </label>
+          </div>
+        </div>
+      </div>
       <hr>
       <div class="row">
-    <div class="col">
-      <h6>Дата СГР</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="date" required/>
+        <div class="col">
+          <h6>Дата СГР</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="date" required/>
+        </div>
+        <div class="col">
+          <h6>Срок годности</h6>
+          <input type="number" class="form-control form-control-sm" name="shLife" ngModel required/>
+        </div>
       </div>
-      <div class="col">
-      <h6>Срок годности</h6>
-      <input type="number" class="form-control form-control-sm" name="shLife" ngModel required/>
-        </div></div>
       <div class="row">
-    <div class="col">
-      <h6>Упаковка</h6>
-      <input type="text" class="form-control form-control-sm" name="compPackage" ngModel/>
+        <div class="col">
+          <h6>Упаковка</h6>
+          <input type="text" class="form-control form-control-sm" name="compPackage" ngModel/>
+        </div>
+        <div class="col">
+          <h6>Требования качества продукции</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="standard" #code="ngModel" required/>
+        </div>
       </div>
-      <div class="col">
-      <h6>Требования качества продукции</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="standard" #code="ngModel" required/>
-        </div></div>
       <div class="row">
-    <div class="col">
-      <h6>Сертификат соответствия</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="certificate" #code="ngModel" required/>
+        <div class="col">
+          <h6>Сертификат соответствия</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="certificate" #code="ngModel" required/>
+        </div>
+        <div class="col">
+          <h6>Декларация о соответствии</h6>
+          <input type="text" class="form-control form-control-sm" ngModel name="declaration" #code="ngModel" required/>
+        </div>
       </div>
-      <div class="col">
-      <h6>Декларация о соответствии</h6>
-      <input type="text" class="form-control form-control-sm" ngModel name="declaration" #code="ngModel" required/>
-        </div></div>
+      <div class="row justify-content-start"><div class="col"><h5>Компоненты</h5></div>
+      <div class="col"><button type="button" class="btn btn-sm btn-outline-secondary">
+                Добавить
+      </button></div></div>
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th scope="col">Код</th>
+          <th scope="col">Наименование</th>
+          <th scope="col">Минимум чистого реактива</th>
+          <th scope="col">Максимум чистого реактива</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of components">
+          <td>{{ c.code }}</td>
+          <td>{{ c.name }}</td>
+          <td>{{ c.min }}</td>
+          <td>{{ c.max }}</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <button type="submit" class="btn btn-save">Сохранить</button>
-    </form>
-  </div>
+  </form>
+</div>
