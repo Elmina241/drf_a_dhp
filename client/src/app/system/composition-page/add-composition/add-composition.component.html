@@ -77,10 +77,8 @@
           <input type="text" class="form-control form-control-sm" ngModel name="declaration" #code="ngModel" required/>
         </div>
       </div>
-      <div class="row justify-content-start"><div class="col"><h5>Компоненты</h5></div>
-      <div class="col"><button type="button" class="btn btn-sm btn-outline-secondary">
-                Добавить
-      </button></div></div>
+      <h5>Компоненты</h5>
+        <span class="text-btn" (click)="open()"><i class="fas fa-plus"></i> Добавить</span>
       <table class="table table-sm">
         <thead>
         <tr>
@@ -88,6 +86,7 @@
           <th scope="col">Наименование</th>
           <th scope="col">Минимум чистого реактива</th>
           <th scope="col">Максимум чистого реактива</th>
+          <th scope="col"></th>
         </tr>
         </thead>
         <tbody>

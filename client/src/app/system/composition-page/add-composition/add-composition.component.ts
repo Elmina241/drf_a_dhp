@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MaterialService} from "../../shared/services/material.service";
-import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModalRef, NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Group, Material} from "../../shared/models/material.model";
 import {NgForm} from "@angular/forms";
 import {CompComponent, Composition, ProductForm} from "../../shared/models/composition.model";
@@ -16,7 +16,7 @@ export class AddCompositionComponent implements OnInit {
 
   @Output() onCompositionAdd = new EventEmitter<Composition>();
   @Input() groups: Array<Group>;
-  @Input() modal: NgbModalRef;
+  @Input() activeModal: NgbActiveModal;
   forms: Array<ProductForm>;
   materials: Array<Material>;
   components: Array<CompComponent> = [
@@ -47,8 +47,30 @@ export class AddCompositionComponent implements OnInit {
     this.compositionService.addComposition(composition).subscribe((composition: Composition) => {
       form.reset();
       this.onCompositionAdd.emit(composition);
-      this.modal.close('Save click');
+      this.activeModal.close('Save click');
     })
+  }
+}
+
+export class NgbdModal1Content {
+  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
+
+  open() {
+    this.modalService.open(NgbdModal2Content, {
+      size: 'lg'
+    });
+  }
+}
+
+export class NgbdModal2Content {
+  constructor(public activeModal: NgbActiveModal) {}
+}
+
+export class NgbdModalStacked {
+  constructor(private modalService: NgbModal) {}
+
+  open() {
+    this.modalService.open(NgbdModal1Content);
   }
 }
 

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Group} from "../shared/models/material.model";
 import {Composition} from "../shared/models/composition.model";
 import {CompositionService} from "../shared/services/composition.service";
+import {NgbdModal2Content} from "./add-composition/add-composition.component";
 
 @Component({
   selector: 'app-composition-page',
@@ -24,7 +25,7 @@ export class CompositionPageComponent implements OnInit {
 
   message: string = "";
 
-  constructor(private compositionService: CompositionService, private modalService: NgbModal) { }
+  constructor(private compositionService: CompositionService, private modalService: NgbModal, public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
     this.compositionService.getComposition().subscribe((data: Array<Composition>)=>{
@@ -59,8 +60,10 @@ export class CompositionPageComponent implements OnInit {
     });
   }
 
-  openLg(content) {
-    this.modalService.open(content, { size: 'lg' });
+  openLg() {
+    this.modalService.open(NgbdModal2Content, {
+      size: 'lg'
+    });
   }
 
   findObj(pk: number) :number{
