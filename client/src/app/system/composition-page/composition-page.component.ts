@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {NgbActiveModal, NgbModal} from "@ng-bootstrap/ng-bootstrap";
+import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {Group} from "../shared/models/material.model";
 import {Composition} from "../shared/models/composition.model";
 import {CompositionService} from "../shared/services/composition.service";
-import {NgbdModal2Content} from "./add-composition/add-composition.component";
 
 @Component({
   selector: 'app-composition-page',
@@ -25,7 +24,7 @@ export class CompositionPageComponent implements OnInit {
 
   message: string = "";
 
-  constructor(private compositionService: CompositionService, private modalService: NgbModal, public activeModal: NgbActiveModal) { }
+  constructor(private compositionService: CompositionService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.compositionService.getComposition().subscribe((data: Array<Composition>)=>{
@@ -52,16 +51,8 @@ export class CompositionPageComponent implements OnInit {
     this.message = `Отредактирован рецепт ${composition.code} ${composition.name}`;
   }
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed`;
-    });
-  }
-
-  openLg() {
-    this.modalService.open(NgbdModal2Content, {
+  open(window: any) {
+    this.modalService.open(window, {
       size: 'lg'
     });
   }

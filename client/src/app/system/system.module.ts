@@ -35,7 +35,10 @@ import {ProductService} from "./shared/services/product.service";
 import { AddProductComponent } from './product-page/add-product/add-product.component';
 import { EditProductComponent } from './product-page/edit-product/edit-product.component';
 import {StickerService} from "./shared/services/sticker.service";
-import { AddCompositionComponent } from './composition-page/add-composition/add-composition.component';
+import {
+  AddCompositionComponent,
+  AddMatToCompositionComponent
+} from './composition-page/add-composition/add-composition.component';
 import { EditCompositionComponent } from './composition-page/edit-composition/edit-composition.component';
 import {CompositionService} from "./shared/services/composition.service";
 
@@ -73,7 +76,8 @@ import {CompositionService} from "./shared/services/composition.service";
     AddProductComponent,
     EditProductComponent,
     AddCompositionComponent,
-    EditCompositionComponent
+    EditCompositionComponent,
+    AddMatToCompositionComponent
   ],
   providers: [
     MaterialService,
@@ -83,6 +87,9 @@ import {CompositionService} from "./shared/services/composition.service";
     StickerService,
     CapService,
     CompositionService
+  ],
+  entryComponents: [
+    AddMatToCompositionComponent
   ]
 })
 export class SystemModule {}

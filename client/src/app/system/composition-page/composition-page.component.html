@@ -4,7 +4,7 @@
         <div class="btn-toolbar mb-6 mb-md-0">
           <div class="form-inline">
             <div class="btn-group mr-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="openLg(addItem)">
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="open(addItem)">
                 Добавить
               </button>
               <button type="button" class="btn btn-sm btn-outline-secondary" [disabled]="!isChecked" (click)="onSubmit(deleteForm)">
@@ -69,7 +69,7 @@
 </div>
 
 <ng-template #addItem let-modal class="modal-form">
-  <app-add-composition [groups]="groups" [activeModal]="activeModal" (onCompositionAdd)="newCompositionAdded($event)"></app-add-composition>
+  <app-add-composition [groups]="groups" [activeModal]="modal" (onCompositionAdd)="newCompositionAdded($event)"></app-add-composition>
 </ng-template>
 
 <!--<ng-template #editItem let-modal class="modal-form">

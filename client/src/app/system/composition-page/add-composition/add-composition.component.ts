@@ -19,14 +19,12 @@ export class AddCompositionComponent implements OnInit {
   @Input() activeModal: NgbActiveModal;
   forms: Array<ProductForm>;
   materials: Array<Material>;
-  components: Array<CompComponent> = [
-    new CompComponent(0, 0, 0, 80, 'Вода', 'ВД01'),
-    new CompComponent(3, 0, 10, 80, 'Краситель', 'КР01')
-  ];
+  components: Array<CompComponent> = [];
 
   constructor(private compositionService: CompositionService,
               private productService: ProductService,
-              private materialService: MaterialService
+              private materialService: MaterialService,
+              private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -36,6 +34,13 @@ export class AddCompositionComponent implements OnInit {
     this.materialService.getMaterial().subscribe((data: Array<Material>)=>{
         this.materials = data;
     });
+  }
+
+  findObj(pk: number) :number{
+    for (let p in this.components){
+      if (this.components[p].pk == pk) return +p;
+    }
+    return -1;
   }
 
   onSubmit(form: NgForm){
@@ -50,27 +55,66 @@ export class AddCompositionComponent implements OnInit {
       this.activeModal.close('Save click');
     })
   }
-}
 
-export class NgbdModal1Content {
-  constructor(private modalService: NgbModal, public activeModal: NgbActiveModal) {}
+  delComp(pk: number){
+    let index = this.findObj(pk);
+    this.components.splice(index, 1);
+  }
+
+  newComponentAdded(component: CompComponent){
+    this.components.push(component);
+  }
 
   open() {
-    this.modalService.open(NgbdModal2Content, {
-      size: 'lg'
-    });
+    let modal: NgbModalRef = this.modalService.open(AddMatToCompositionComponent);
+    modal.componentInstance.onComponentAdd.subscribe(event => this.newComponentAdded(event));
   }
 }
 
-export class NgbdModal2Content {
-  constructor(public activeModal: NgbActiveModal) {}
-}
 
-export class NgbdModalStacked {
-  constructor(private modalService: NgbModal) {}
-
-  open() {
-    this.modalService.open(NgbdModal1Content);
+@Component({
+  template:
+    `<div class="modal-form">
+    <div class="modal-header">
+      <h4 class="modal-title">Добавление реактива</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form #fr="ngForm" (ngSubmit)="onSubmit(fr)">
+      <select class="form-control form-control-sm outline-secondary" name="material" ngModel id="material-select">
+        <option *ngFor="let m of materials" [ngValue]="m">{{ m.code }} {{ m.name }}</option>
+      </select>
+      <div class="row">
+        <div class="col">
+          <h6>Минимум, %</h6>
+          <input type="number" ngModel name="min" class="form-control form-control-sm" min="0" max="100" required/>
+        </div>
+        <div class="col">
+          <h6>Максимум, %</h6>
+          <input type="number" ngModel name="max" class="form-control form-control-sm" min="0" max="100" required/>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-save">Добавить</button>
+  </form>
+    </div></div>
+  `
+})
+export class AddMatToCompositionComponent implements OnInit{
+  materials: Array<Material>;
+  @Output() onComponentAdd = new EventEmitter<CompComponent>();
+  constructor(public activeModal: NgbActiveModal, private materialService: MaterialService) {}
+  ngOnInit() {
+    this.materialService.getMaterial().subscribe((data: Array<Material>)=>{
+        this.materials = data;
+    });
+  }
+  onSubmit(form: NgForm){
+    let {material, min, max} = form.value;
+    let component = new CompComponent(material.pk, min, max, material);
+    this.onComponentAdd.emit(component);
+    this.activeModal.close('Close click');
   }
 }
 

@@ -35,11 +35,10 @@ export class ProductForm {
 
 export class CompComponent {
   constructor(
-    public pk: number,
     public mat_id: number,
     public min: number,
     public max: number,
-    public name?: string,
-    public code?: string
+    public mat?: Material,
+    public pk?: number
   ){}
 }
