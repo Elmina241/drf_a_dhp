@@ -44,7 +44,10 @@ export class AddCompositionComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    const {code, name, group, prForm, sgr, isFinal, shLife, date, compPackage, standard, certificate, declaration} = form.value;
+    let {code, name, group, prForm, sgr, isFinal, shLife, date, compPackage, standard, certificate, declaration} = form.value;
+
+    if (date == "") date = null;
+    if (shLife == "") shLife = null;
 
     const composition = new Composition(code, name, group, sgr, shLife, date, compPackage,
       standard, certificate, declaration, this.components, prForm, isFinal);

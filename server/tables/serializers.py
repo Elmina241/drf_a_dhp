@@ -78,28 +78,29 @@ class CompositionGroupSerializer(serializers.ModelSerializer):
         fields = ('pk','name')
 
 class ComponentsSerializer(serializers.ModelSerializer):
-    comp_id = serializers.IntegerField(write_only=True)
+    #comp_id = serializers.IntegerField(write_only=True)
     mat = MaterialSerializer(read_only=True)
     mat_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Components
-        fields = ('pk', 'mat', 'comp_id', 'mat_id', 'min', 'max')
+        fields = ('pk', 'mat', 'mat_id', 'min', 'max')
 
 class CompositionSerializer(serializers.ModelSerializer):
     group = CompositionGroupSerializer(read_only=True)
     group_id = serializers.IntegerField(write_only=True)
     form = ProductFormSerializer(read_only=True)
     form_id = serializers.IntegerField(write_only=True)
-    components = ComponentsSerializer(many=True)
+    components_set = ComponentsSerializer(many=True)
     class Meta:
         model = Composition
         fields = ('pk','name', 'code', 'sgr', 'sh_life',
                   'date', 'comp_package', 'standard', 'certificate',
-                  'declaration', 'cur_batch', 'components', 'group', 'group_id', 'form', 'form_id', 'isFinal')
+                  'declaration', 'cur_batch', 'components_set', 'group', 'group_id', 'form', 'form_id', 'isFinal')
 
     def create(self, validated_data):
-        components_data = validated_data.pop('components')
+        components_data = validated_data.pop('components_set')
         composition = Composition.objects.create(**validated_data)
+        print(composition)
         for component_data in components_data:
             Components.objects.create(comp=composition, **component_data)
         return composition

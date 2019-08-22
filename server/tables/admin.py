@@ -17,4 +17,6 @@ admin.site.register(Product_group)
 admin.site.register(Product_use)
 admin.site.register(Product_mark)
 admin.site.register(Sticker_part)
+admin.site.register(Composition_group)
+admin.site.register(Product_form)
 

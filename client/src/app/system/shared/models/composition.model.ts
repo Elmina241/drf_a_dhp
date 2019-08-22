@@ -12,8 +12,8 @@ export class Composition {
     public standard: string, //Требования качества продукции
     public certificate: string, //Сертификат соответствия
     public declaration: string, //Декларация о соответствии
-    public components: Array<CompComponent>,
-    public form: number, //Паста, Гель и т д
+    public components_set: Array<CompComponent>,
+    public form_id: number, //Паста, Гель и т д
     public isFinal: boolean, //технологическая или нет?
     public pk?: number
   ) {}
