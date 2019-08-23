@@ -72,6 +72,6 @@
   <app-add-composition [groups]="groups" [activeModal]="modal" (onCompositionAdd)="newCompositionAdded($event)"></app-add-composition>
 </ng-template>
 
-<!--<ng-template #editItem let-modal class="modal-form">
-  <app-edit-composition [groups]="groups" [currentComposition]="currentComposition" [modal]="modal" (onCompositionEdit)="CompositionEdited($event)"></app-edit-composition>
-</ng-template>-->
+<ng-template #editItem let-modal class="modal-form">
+  <app-edit-composition [groups]="groups" [currentComposition]="currentComposition" [activeModal]="modal" (onCompositionEdit)="CompositionEdited($event)"></app-edit-composition>
+</ng-template>

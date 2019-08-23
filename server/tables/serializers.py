@@ -100,10 +100,28 @@ class CompositionSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         components_data = validated_data.pop('components_set')
         composition = Composition.objects.create(**validated_data)
-        print(composition)
         for component_data in components_data:
             Components.objects.create(comp=composition, **component_data)
         return composition
+    def update(self, instance, validated_data):
+        components_data = validated_data.pop('components_set')
+        instance.name = validated_data.pop('name')
+        instance.code = validated_data.pop('code')
+        instance.sgr = validated_data.pop('sgr')
+        instance.sh_life = validated_data.pop('sh_life')
+        instance.comp_package = validated_data.pop('comp_package')
+        instance.standard = validated_data.pop('standard')
+        instance.certificate = validated_data.pop('certificate')
+        instance.declaration = validated_data.pop('declaration')
+        instance.group = Composition_group.objects.get(pk=validated_data.pop('group_id'))
+        instance.form = Product_form.objects.get(pk=validated_data.pop('form_id'))
+        instance.isFinal = validated_data.pop('isFinal')
+        instance.save()
+        #instance.update(**validated_data)
+        Components.objects.filter(comp=instance).delete()
+        for component_data in components_data:
+            Components.objects.create(comp=instance, **component_data)
+        return instance
 
 #Модели для тары
 

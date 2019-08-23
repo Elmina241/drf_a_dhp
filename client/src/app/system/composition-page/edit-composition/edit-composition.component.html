@@ -1,3 +1,105 @@
-<p>
-  edit-composition works!
-</p>
+<div class="modal-form">
+  <div class="modal-header">
+    <h5 class="modal-title" id="editItemLabel">Редактирование рецепта</h5>
+    <button type="button" class="close" (click)="activeModal.dismiss('Cross click')" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col">
+          <h6>Код</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentComposition.code" name="e_code" #code="ngModel" required/>
+        </div>
+        <div class="col">
+          <h6>Наименование</h6>
+          <input type="text" class="form-control form-control-sm" name="e_name" [ngModel]="currentComposition.name" required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Форма</h6>
+          <select class="form-control form-control-sm" name="e_prForm" id="e_select-form" [ngModel]="currentComposition.form.pk">
+            <option *ngFor="let f of forms" [value]="f.pk">{{ f.name }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <h6>Группа</h6>
+          <select class="form-control form-control-sm" name="e_group" id="e_select-group" [ngModel]="currentComposition.group.pk">
+            <option *ngFor="let g of groups" [value]="g.pk">{{ g.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>СГР</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentComposition.sgr" name="e_sgr" required/>
+        </div>
+        <div class="col">
+          <h6>Тип композиции</h6>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" [ngModel]="currentComposition.isFinal" name="e_isFinal" id="e_isFinalCheck" required/>
+            <label class="form-check-label" for="e_isFinalCheck">
+              Технологическая
+            </label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <h6>Дата СГР</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentComposition.date" name="e_date" required/>
+        </div>
+        <div class="col">
+          <h6>Срок годности</h6>
+          <input type="number" class="form-control form-control-sm" name="e_shLife" value="0" [ngModel]="currentComposition.sh_life" required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Упаковка</h6>
+          <input type="text" class="form-control form-control-sm" name="e_compPackage" [ngModel]="currentComposition.comp_package"/>
+        </div>
+        <div class="col">
+          <h6>Требования качества продукции</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentComposition.standard" name="e_standard"  required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Сертификат соответствия</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentComposition.certificate" name="e_certificate" required/>
+        </div>
+        <div class="col">
+          <h6>Декларация о соответствии</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentComposition.declaration" name="e_declaration" required/>
+        </div>
+      </div>
+      <h5>Компоненты</h5>
+        <span class="text-btn" (click)="open()"><i class="fas fa-plus"></i> Добавить</span>
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th scope="col">Код</th>
+          <th scope="col">Наименование</th>
+          <th scope="col">Минимум чистого реактива</th>
+          <th scope="col">Максимум чистого реактива</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of components">
+          <td>{{ c.mat.code }}</td>
+          <td>{{ c.mat.name }}</td>
+          <td>{{ c.min }}</td>
+          <td>{{ c.max }}</td>
+          <td><span title="Удалить" (click)="delComp(c.pk)"><i class="fas fa-trash"></i></span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <button type="submit" class="btn btn-save">Сохранить</button>
+  </form>
+</div>
