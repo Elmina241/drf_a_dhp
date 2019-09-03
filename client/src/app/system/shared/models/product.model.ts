@@ -33,4 +33,25 @@ export class Mark {
   ){}
 }
 
+export class Production {
+  constructor(
+    public composition_id: number,
+    public container_id: number,
+    public cap_id: number,
+    public sticker_id: number,
+    public boxing_id: number,
+    public compAmount: number,
+    public compUnit_id: number,
+    public contAmount: number,
+    public contUnit_id: number,
+    public capAmount: number,
+    public capUnit_id: number,
+    public stickerAmount: number,
+    public stickerUnit_id: number,
+    public boxingAmount: number,
+    public boxingUnit_id: number,
+    public pk?: number,
+  ) {}
+}
+
 

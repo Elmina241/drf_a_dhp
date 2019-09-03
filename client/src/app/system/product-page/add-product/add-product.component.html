@@ -57,57 +57,86 @@
         <tbody>
         <tr>
           <td>
-            <select class="form-control form-control-sm">
+            <select class="form-control form-control-sm" ngModel>
+              <option *ngFor="let c of compositions" value="{{ c.pk }}">{{ c.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" ngModel>
+              <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" ngModel>
+              <option *ngFor="let c of containers" value="{{ c.pk }}">{{ c.group.name }} {{ c.mat.name }} {{ c.form }} {{ c.colour.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" name="" ngModel required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" ngModel>
+              <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" ngModel>
               <option *ngFor="let c of caps" value="{{ c.pk }}">{{ c.group.name }} {{ c.form }} {{ c.mat.name }} {{
                 c.colour.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control">
-              <option>
-                кг.
+            <select class="form-control-sm form-control" ngModel>
+              <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
           </td>
         </tr>
         <tr>
           <td>
-            <select class="form-control-sm form-control">
-              <option>
-                Паста
+            <select class="form-control form-control-sm" ngModel>
+              <option *ngFor="let s of stickers" value="{{ s.pk }}">Этикетка {{ s.code }} {{ s.part.name }} / {{ s.product.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control">
-              <option>
-                кг.
+            <select class="form-control-sm form-control" ngModel>
+              <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
           </td>
         </tr>
         <tr>
           <td>
-            <select class="form-control-sm form-control">
-              <option>
-                Паста
+            <select class="form-control form-control-sm" ngModel>
+              <option *ngFor="let b of boxing" value="{{ b.pk }}">{{ b.group.name }} {{ b.form }} {{ b.mat.name }} {{ b.colour.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control">
-              <option>
-                кг.
+            <select class="form-control-sm form-control" name="" ngModel>
+              <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
           </td>
