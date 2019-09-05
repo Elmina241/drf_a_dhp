@@ -30,56 +30,7 @@ class MaterialSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-# Модели для продукции
-class ProductGroupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product_group
-        fields = ('pk','name')
 
-class ProductUseSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product_use
-        fields = ('pk','name')
-
-class ProductFormSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product_form
-        fields = ('pk','name')
-
-class ProductMarkSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product_mark
-        fields = ('pk','name')
-
-class ProductionSerializer(serializers.ModelSerializer):
-    #composition = CompositionSerializer(read_only=True)
-    #container = ContainerSerializer(read_only=True)
-    #cap = CapSerializer(read_only=True)
-    #sticker = StickerSerializer(read_only=True)
-    #boxing = BoxingSerializer(read_only=True)
-    composition_id = serializers.IntegerField(write_only=True)
-    container_id = serializers.IntegerField(write_only=True)
-    cap_id = serializers.IntegerField(write_only=True)
-    sticker_id = serializers.IntegerField(write_only=True)
-    boxing_id = serializers.IntegerField(write_only=True)
-    class Meta:
-        model = Production
-        fields = ('pk', 'composition', 'container', 'cap', 'sticker', 'boxing',
-                  'compAmount', 'compUnit', 'contAmount', 'contUnit', 'capAmount', 'capUnit', 'stickerAmount',
-                  'stickerUnit', 'boxingAmount', 'boxingUnit', 'composition_id', 'container_id', 'cap_id', 'sticker_id', 'boxing_id')
-
-class ProductSerializer(serializers.ModelSerializer):
-    group = ProductGroupSerializer(read_only=True)
-    use = ProductUseSerializer(read_only=True)
-    production = ProductionSerializer(read_only=True)
-    mark = ProductMarkSerializer(read_only=True)
-    group_id = serializers.IntegerField(write_only=True)
-    use_id = serializers.IntegerField(write_only=True)
-    mark_id = serializers.IntegerField(write_only=True)
-    production_id = serializers.IntegerField(write_only=True)
-    class Meta:
-        model = Product
-        fields = ('pk','name', 'code', 'group', 'use', 'option', 'detail', 'mark', 'production', 'group_id', 'use_id', 'mark_id', 'production_id')
 
 #Модели для рецептов
 
@@ -203,6 +154,59 @@ class BoxingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Boxing
         fields = ('pk','code', 'group', 'form', 'colour', 'mat', 'colour_id', 'mat_id', 'group_id')
+
+
+
+# Модели для продукции
+class ProductGroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_group
+        fields = ('pk','name')
+
+class ProductUseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_use
+        fields = ('pk','name')
+
+class ProductFormSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_form
+        fields = ('pk','name')
+
+class ProductMarkSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product_mark
+        fields = ('pk','name')
+
+class ProductionSerializer(serializers.ModelSerializer):
+    composition = CompositionSerializer(read_only=True)
+    container = ContainerSerializer(read_only=True)
+    cap = CapSerializer(read_only=True)
+    sticker = StickerSerializer(read_only=True)
+    boxing = BoxingSerializer(read_only=True)
+    composition_id = serializers.IntegerField(write_only=True)
+    container_id = serializers.IntegerField(write_only=True)
+    cap_id = serializers.IntegerField(write_only=True)
+    sticker_id = serializers.IntegerField(write_only=True)
+    boxing_id = serializers.IntegerField(write_only=True)
+    class Meta:
+        model = Production
+        fields = ('pk', 'composition', 'container', 'cap', 'sticker', 'boxing',
+                  'compAmount', 'compUnit', 'contAmount', 'contUnit', 'capAmount', 'capUnit', 'stickerAmount',
+                  'stickerUnit', 'boxingAmount', 'boxingUnit', 'composition_id', 'container_id', 'cap_id', 'sticker_id', 'boxing_id')
+
+class ProductSerializer(serializers.ModelSerializer):
+    group = ProductGroupSerializer(read_only=True)
+    use = ProductUseSerializer(read_only=True)
+    production = ProductionSerializer(read_only=True)
+    mark = ProductMarkSerializer(read_only=True)
+    group_id = serializers.IntegerField(write_only=True)
+    use_id = serializers.IntegerField(write_only=True)
+    mark_id = serializers.IntegerField(write_only=True)
+    production_id = serializers.IntegerField(write_only=True)
+    class Meta:
+        model = Product
+        fields = ('pk','name', 'code', 'group', 'use', 'option', 'detail', 'mark', 'production', 'group_id', 'use_id', 'mark_id', 'production_id')
 
 #Модели для этикетки
 

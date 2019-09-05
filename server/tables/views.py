@@ -122,3 +122,7 @@ class CompositionDetail(generics.RetrieveUpdateDestroyAPIView):
 class CompositionGroupList(generics.ListCreateAPIView):
     queryset = Composition_group.objects.all()
     serializer_class = CompositionGroupSerializer
+
+class ProductionList(generics.ListCreateAPIView):
+    queryset = Production.objects.all()
+    serializer_class = ProductionSerializer

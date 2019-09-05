@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {Group, Unit} from "../../shared/models/material.model";
-import {Mark, Product, Use} from "../../shared/models/product.model";
+import {Mark, Product, Production, Use} from "../../shared/models/product.model";
 import {ProductService} from "../../shared/services/product.service";
 import {Cap} from "../../shared/models/cap.model";
 import {CapService} from "../../shared/services/cap.service";
@@ -72,14 +72,29 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    const {code, name, group, mark, use, option, detail} = form.value;
+    const {code, name, group,
+      mark, use, option, detail,
+      composition, composition_num, composition_unit,
+      container, container_num, container_unit,
+      cap, cap_num, cap_unit,
+      sticker, sticker_num, sticker_unit,
+      boxing, boxing_num, boxing_unit
+    } = form.value;
 
-    const product = new Product(code, name, group, use, option, detail, mark);
+    const production = new Production(composition, composition_num, composition_unit,
+      container, container_num, container_unit,
+      cap, cap_num, cap_unit,
+      sticker, sticker_num, sticker_unit,
+      boxing, boxing_num, boxing_unit);
+    const product = new Product(code, name, group, use, option, detail, mark, 0);
 
-    this.productService.addProduct(product).subscribe((product: Product) => {
-      form.reset();
-      this.onProductAdd.emit(product);
-      this.modal.close('Save click');
+    this.productService.addProduction(production).subscribe((production: Production) => {
+      product.production_id = production.pk;
+      this.productService.addProduct(product).subscribe((product: Product) => {
+        form.reset();
+        this.onProductAdd.emit(product);
+        this.modal.close('Save click');
+      })
     })
   }
 }

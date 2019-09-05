@@ -5,7 +5,7 @@ import {Observable} from "rxjs/internal/Observable";
 
 import {BaseApi} from "../../../shared/core/base-api";
 import {Material} from "../models/material.model";
-import {Product} from "../models/product.model";
+import {Product, Production} from "../models/product.model";
 
 @Injectable()
 export class ProductService extends BaseApi{
@@ -28,6 +28,10 @@ export class ProductService extends BaseApi{
 
   addProduct(product: Product): Observable<Product>{
     return this.post('tables/products/', product);
+  }
+
+  addProduction(production: Production): Observable<Production>{
+    return this.post('tables/products/production/', production);
   }
 
   deleteProduct(productId: number): Observable<any>{

@@ -57,16 +57,16 @@
         <tbody>
         <tr>
           <td>
-            <select class="form-control form-control-sm" ngModel>
+            <select class="form-control form-control-sm" name="composition" ngModel>
               <option *ngFor="let c of compositions" value="{{ c.pk }}">{{ c.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="composition_num" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control" ngModel>
+            <select class="form-control-sm form-control" name="composition_unit" ngModel>
               <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
@@ -74,16 +74,16 @@
         </tr>
         <tr>
           <td>
-            <select class="form-control form-control-sm" ngModel>
+            <select class="form-control form-control-sm" name="container" ngModel>
               <option *ngFor="let c of containers" value="{{ c.pk }}">{{ c.group.name }} {{ c.mat.name }} {{ c.form }} {{ c.colour.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" name="" ngModel required/>
+            <input type="number" class="form-control form-control-sm" name="container_num" ngModel required/>
           </td>
           <td>
-            <select class="form-control-sm form-control" ngModel>
+            <select class="form-control-sm form-control" name="container_unit" ngModel>
               <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
@@ -91,17 +91,17 @@
         </tr>
         <tr>
           <td>
-            <select class="form-control form-control-sm" ngModel>
+            <select class="form-control form-control-sm" name="cap" ngModel>
               <option *ngFor="let c of caps" value="{{ c.pk }}">{{ c.group.name }} {{ c.form }} {{ c.mat.name }} {{
                 c.colour.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="cap_num" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control" ngModel>
+            <select class="form-control-sm form-control" name="cap_unit" ngModel>
               <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
@@ -109,16 +109,16 @@
         </tr>
         <tr>
           <td>
-            <select class="form-control form-control-sm" ngModel>
+            <select class="form-control form-control-sm" name="sticker" ngModel>
               <option *ngFor="let s of stickers" value="{{ s.pk }}">Этикетка {{ s.code }} {{ s.part.name }} / {{ s.product.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="sticker_num" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control" ngModel>
+            <select class="form-control-sm form-control" name="sticker_unit" ngModel>
               <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
@@ -126,16 +126,16 @@
         </tr>
         <tr>
           <td>
-            <select class="form-control form-control-sm" ngModel>
+            <select class="form-control form-control-sm" name="boxing" ngModel>
               <option *ngFor="let b of boxing" value="{{ b.pk }}">{{ b.group.name }} {{ b.form }} {{ b.mat.name }} {{ b.colour.name }}
               </option>
             </select>
           </td>
           <td>
-            <input type="number" class="form-control form-control-sm" ngModel name="" required/>
+            <input type="number" class="form-control form-control-sm" ngModel name="boxing_num" required/>
           </td>
           <td>
-            <select class="form-control-sm form-control" name="" ngModel>
+            <select class="form-control-sm form-control" name="boxing_unit" ngModel>
               <option *ngFor="let u of units" value="{{ u.pk }}">{{ u.name }}
               </option>
             </select>
