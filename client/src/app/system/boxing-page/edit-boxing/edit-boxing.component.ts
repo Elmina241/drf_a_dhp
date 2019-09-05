@@ -1,11 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {NgForm} from "@angular/forms";
-import {Cap} from "../../shared/models/cap.model";
-import {Color, PackingMaterial} from "../../shared/models/packing.model";
+import {Color} from "../../shared/models/packing.model";
 import {Group} from "../../shared/models/material.model";
 import {PackingService} from "../../shared/services/packing.service";
-import {CapService} from "../../shared/services/cap.service";
 import {Boxing, BoxingMaterial} from "../../shared/models/boxing.model";
 import {BoxingService} from "../../shared/services/boxing.service";
 
