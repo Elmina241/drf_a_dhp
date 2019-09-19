@@ -6,27 +6,143 @@
       </button>
     </div>
     <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
-    <div class="modal-body">
-      <h6>Артикул</h6>
-      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.code" name="e_code" #e_code="ngModel" required/>
-      <h6>Краткое наименование</h6>
-      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.name" name="e_name" ngModel required/>
-      <h6>Группа</h6>
-      <select class="form-control form-control-sm" name="e_group" [ngModel]="currentProduct.group.pk">
-        <option *ngFor="let g of groups" [value]="g.pk">{{ g.name }}</option>
-      </select>
-      <h6>Назначение</h6>
-      <select class="form-control form-control-sm" name="e_use" id="e-select-use" [ngModel]="currentProduct.use.pk">
-        <option *ngFor="let u of uses" [value]="u.pk">{{ u.name }}</option>
-      </select>
-      <h6>Варианты</h6>
-      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.option" name="e_option" ngModel required/>
-      <h6>Уточнение</h6>
-      <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.detail" name="e_detail" ngModel required/>
+    <div class="modal-body container">
+      <div class="row">
+        <div class="col">
+          <h6>Артикул</h6>
+          <input type="text" class="form-control form-control-sm" [ngModel]="currentProduct.code" name="e_code"  required/>
+        </div>
+        <div class="col">
+          <h6>Краткое наименование</h6>
+          <input type="text" class="form-control form-control-sm" name="e_name" [ngModel]="currentProduct.name" required/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Группа</h6>
+          <select class="form-control form-control-sm" name="e_group" id="e-select-group" [ngModel]="currentProduct.group.pk">
+            <option *ngFor="let g of groups" [value]="g.pk">{{ g.name }}</option>
+          </select>
+        </div>
+        <div class="col">
+          <h6>Назначение</h6>
+          <select class="form-control form-control-sm" name="e_use" id="e-select-use" [ngModel]="currentProduct.use.pk">
+            <option *ngFor="let u of uses" [value]="u.pk">{{ u.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h6>Варианты</h6>
+          <input type="text" class="form-control form-control-sm" name="e_option" [ngModel]="currentProduct.option" required/>
+        </div>
+        <div class="col">
+          <h6>Уточнение</h6>
+          <input type="text" class="form-control form-control-sm" name="e_detail" [ngModel]="currentProduct.detail" required/>
+        </div>
+      </div>
       <h6>Марка</h6>
-      <select class="form-control form-control-sm" name="e_mark" [ngModel]="currentProduct.mark.pk">
+      <select class="form-control form-control-sm" name="e_mark" id="e-select-mark" [ngModel]="currentProduct.mark.pk">
         <option *ngFor="let m of marks" [value]="m.pk">{{ m.name }}</option>
       </select>
+      <h6>Комплект</h6>
+      <table class="table table-sm">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Кол-во в фасовке</th>
+          <th>Ед. изм.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" name="e_composition" [ngModel]="currentProduct.production.composition.pk">
+              <option *ngFor="let c of compositions" [value]="c.pk">{{ c.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" name="e_composition_num" [ngModel]="currentProduct.production.compAmount"/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" name="e_composition_unit" [ngModel]="currentProduct.production.compUnit.pk">
+              <option *ngFor="let u of units" [value]="u.pk">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" name="e_container" [ngModel]="currentProduct.production.container.pk">
+              <option *ngFor="let c of containers" [value]="c.pk">{{ c.group.name }} {{ c.mat.name }} {{ c.form }} {{ c.colour.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" name="e_container_num" [ngModel]="currentProduct.contAmount" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" name="e_container_unit" [ngModel]="currentProduct.production.contUnit.pk">
+              <option *ngFor="let u of units" [value]="u.pk">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" name="e_cap" [ngModel]="currentProduct.production.cap.pk">
+              <option *ngFor="let c of caps" [value]="c.pk">{{ c.group.name }} {{ c.form }} {{ c.mat.name }} {{
+                c.colour.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" [ngModel]="currentProduct.production.capAmount" name="e_cap_num" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" name="e_cap_unit" [ngModel]="currentProduct.production.capUnit.pk">
+              <option *ngFor="let u of units" [value]="u.pk">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" name="e_sticker" [ngModel]="currentProduct.production.sticker.pk">
+              <option *ngFor="let s of stickers" [value]="s.pk">Этикетка {{ s.code }} {{ s.part.name }} / {{ s.product.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" [ngModel]="currentProduct.production.stickerAmount" name="e_sticker_num" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" name="e_sticker_unit" [ngModel]="currentProduct.production.stickerUnit.pk">
+              <option *ngFor="let u of units" [value]="u.pk">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <select class="form-control form-control-sm" name="e_boxing" [ngModel]="currentProduct.production.boxing.pk">
+              <option *ngFor="let b of boxing" [value]="b.pk">{{ b.group.name }} {{ b.form }} {{ b.mat.name }} {{ b.colour.name }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" class="form-control form-control-sm" [ngModel]="currentProduct.production.boxingAmount" name="e_boxing_num" required/>
+          </td>
+          <td>
+            <select class="form-control-sm form-control" name="e_boxing_unit" [ngModel]="currentProduct.production.boxingUnit.pk">
+              <option *ngFor="let u of units" [value]="u.pk">{{ u.name }}
+              </option>
+            </select>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
     <button type="submit" class="btn btn-save">Сохранить</button>
     </form>

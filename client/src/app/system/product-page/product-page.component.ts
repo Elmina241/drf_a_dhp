@@ -73,7 +73,8 @@ export class ProductPageComponent implements OnInit {
   openEditWin(pk: number, window: any){
     this.currentProductId = this.findObj(pk);
     this.currentProduct = this.products[this.currentProductId];
-    this.open(window);
+    console.log(this.currentProduct);
+    this.openLg(window);
   }
 
   checkList(form: NgForm){

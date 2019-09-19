@@ -88,6 +88,8 @@ export class AddProductComponent implements OnInit {
       boxing, boxing_num, boxing_unit);
     const product = new Product(code, name, group, use, option, detail, mark, 0);
 
+    console.log(production);
+
     this.productService.addProduction(production).subscribe((production: Production) => {
       product.production_id = production.pk;
       this.productService.addProduct(product).subscribe((product: Product) => {
