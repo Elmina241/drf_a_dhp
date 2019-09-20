@@ -126,3 +126,7 @@ class CompositionGroupList(generics.ListCreateAPIView):
 class ProductionList(generics.ListCreateAPIView):
     queryset = Production.objects.all()
     serializer_class = ProductionSerializer
+
+class ProductionDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Production.objects.all()
+    serializer_class = ProductionSerializer

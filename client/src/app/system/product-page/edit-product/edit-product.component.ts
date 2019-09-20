@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {NgbModalRef} from "@ng-bootstrap/ng-bootstrap";
 import {Group, Unit} from "../../shared/models/material.model";
-import {Mark, Product, Use} from "../../shared/models/product.model";
+import {Mark, Product, Production, Use} from "../../shared/models/product.model";
 import {ProductService} from "../../shared/services/product.service";
 import {Composition} from "../../shared/models/composition.model";
 import {Sticker} from "../../shared/models/sticker.model";
@@ -73,15 +73,30 @@ export class EditProductComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    const {e_code, e_name, e_group, e_mark, e_use, e_option, e_detail} = form.value;
+    const {e_code, e_name, e_group, e_mark, e_use, e_option, e_detail,
+      e_composition, e_composition_num, e_composition_unit,
+      e_container, e_container_num, e_container_unit,
+      e_cap, e_cap_num, e_cap_unit,
+      e_sticker, e_sticker_num, e_sticker_unit,
+      e_boxing, e_boxing_num, e_boxing_unit
+    } = form.value;
 
-    const product = new Product(e_code, e_name, e_group, e_use, e_option, e_detail, e_mark, this.currentProduct.pk);
+    const production = new Production(e_composition, e_composition_num, e_composition_unit,
+      e_container, e_container_num, e_container_unit,
+      e_cap, e_cap_num, e_cap_unit,
+      e_sticker, e_sticker_num, e_sticker_unit,
+      e_boxing, e_boxing_num, e_boxing_unit, this.currentProduct.production.pk);
 
-    this.productService.editProduct(product).subscribe((product: Product) => {
-      form.reset();
-      this.onProductEdit.emit(product);
-      this.modal.close('Save click');
-    })
+    const product = new Product(e_code, e_name, e_group, e_use, e_option, e_detail, e_mark, this.currentProduct.production.pk, this.currentProduct.pk);
+
+    this.productService.editProduction(production).subscribe((production: Production) => {
+      this.productService.editProduct(product).subscribe((product: Product) => {
+        form.reset();
+        this.onProductEdit.emit(product);
+        this.modal.close('Save click');
+      })
+    });
+
   }
 
 }

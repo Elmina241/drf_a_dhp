@@ -37,6 +37,7 @@ urlpatterns = [
     path('composition_groups/', views.CompositionGroupList.as_view()),
     path('compositions/<int:pk>/', views.CompositionDetail.as_view()),
     path('products/production/', views.ProductionList.as_view()),
+    path('products/production/<int:pk>/', views.ProductionDetail.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -227,7 +227,7 @@ class StickerSerializer(serializers.ModelSerializer):
     part_id = serializers.IntegerField(write_only=True)
     class Meta:
         model = Sticker
-        fields = ('product', 'product_id', 'pk','code', 'product', 'part', 'product_id', 'part_id')
+        fields = ('product', 'product_id', 'pk', 'code', 'product', 'part', 'product_id', 'part_id')
 
 class ProductionSerializer(serializers.ModelSerializer):
     composition = CompositionSerializer(read_only=True)
@@ -260,7 +260,7 @@ class ProductSerializer(serializers.ModelSerializer):
     group_id = serializers.IntegerField(write_only=True)
     use_id = serializers.IntegerField(write_only=True)
     mark_id = serializers.IntegerField(write_only=True)
-    production = ProductionMinSerializer(read_only=True)
+    production = ProductionSerializer(read_only=True)
     production_id = serializers.IntegerField(write_only=True)
     class Meta(ProductMinSerializer.Meta):
         fields = (*ProductMinSerializer.Meta.fields, 'production', 'production_id')

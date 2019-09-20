@@ -34,6 +34,10 @@ export class ProductService extends BaseApi{
     return this.post('tables/products/production/', production);
   }
 
+  editProduction(production: Production): Observable<Production>{
+    return this.put(`tables/products/production/${production.pk}/`, production);
+  }
+
   deleteProduct(productId: number): Observable<any>{
     return this.delete(`tables/products/${productId}`);
   }
