@@ -8,7 +8,8 @@ export class Product {
     public detail: string,
     public mark_id: number,
     public production_id: number,
-    public pk?: number
+    public pk?: number,
+    public production?: Production
   ) {}
 }
 
