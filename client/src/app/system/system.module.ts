@@ -41,6 +41,9 @@ import {
 } from './composition-page/add-composition/add-composition.component';
 import { EditCompositionComponent } from './composition-page/edit-composition/edit-composition.component';
 import {CompositionService} from "./shared/services/composition.service";
+import {FormulaService} from "./shared/services/formula.service";
+import { AddFormulaComponent } from './formula-page/add-formula/add-formula.component';
+import { EditFormulaComponent } from './formula-page/edit-formula/edit-formula.component';
 
 @NgModule({
   imports: [
@@ -77,7 +80,9 @@ import {CompositionService} from "./shared/services/composition.service";
     EditProductComponent,
     AddCompositionComponent,
     EditCompositionComponent,
-    AddMatToCompositionComponent
+    AddMatToCompositionComponent,
+    AddFormulaComponent,
+    EditFormulaComponent
   ],
   providers: [
     MaterialService,
@@ -86,7 +91,8 @@ import {CompositionService} from "./shared/services/composition.service";
     ProductService,
     StickerService,
     CapService,
-    CompositionService
+    CompositionService,
+    FormulaService
   ],
   entryComponents: [
     AddMatToCompositionComponent

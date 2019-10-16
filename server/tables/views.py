@@ -130,3 +130,11 @@ class ProductionList(generics.ListCreateAPIView):
 class ProductionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Production.objects.all()
     serializer_class = ProductionSerializer
+
+class FormulaList(generics.ListCreateAPIView):
+    queryset = Formula.objects.all()
+    serializer_class = FormulaSerializer
+
+class FormulaDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Formula.objects.all()
+    serializer_class = FormulaSerializer
